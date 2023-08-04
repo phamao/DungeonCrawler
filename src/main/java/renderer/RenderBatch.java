@@ -212,10 +212,18 @@ public class RenderBatch {
         // Triangle 2
         elements[offsetArrayIndex + 3] = offset + 0;
         elements[offsetArrayIndex + 4] = offset + 2;
-        elements[offsetArrayIndex + 2] = offset + 1;
+        elements[offsetArrayIndex + 5] = offset + 1;
     }
 
     public boolean hasRoom() {
         return this.hasRoom;
+    }
+
+    public boolean hasTextureRoom() {
+        return this.textures.size() < 8;
+    }
+
+    public boolean hasTexture(Texture tex) {
+        return  this.textures.contains(tex);
     }
 }
