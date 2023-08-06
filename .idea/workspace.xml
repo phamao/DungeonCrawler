@@ -4,10 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ac74943e-1386-480e-8f9e-76de047c391b" name="Changes" comment="Snap To Grid Tool">
-      <change afterPath="$PROJECT_DIR$/src/main/java/util/JMath.java" afterDir="false" />
+    <list default="true" id="ac74943e-1386-480e-8f9e-76de047c391b" name="Changes" comment="Framebuffers in OpenGL">
+      <change afterPath="$PROJECT_DIR$/src/main/java/renderer/Framebuffer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/renderer/DebugDraw.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/renderer/DebugDraw.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jade/Window.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jade/Window.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/renderer/RenderBatch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/renderer/RenderBatch.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/renderer/Texture.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/renderer/Texture.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/scenes/LevelEditorScene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/scenes/LevelEditorScene.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -240,7 +242,15 @@
       <option name="project" value="LOCAL" />
       <updated>1691276763515</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Debug Drawing Boxes and Circles">
+      <option name="closed" value="true" />
+      <created>1691279076645</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1691279076645</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -275,7 +285,9 @@
     <MESSAGE value="Drag 'N Drop Level Editor" />
     <MESSAGE value="Debug Drawing Functions" />
     <MESSAGE value="Snap To Grid Tool" />
-    <option name="LAST_COMMIT_MESSAGE" value="Snap To Grid Tool" />
+    <MESSAGE value="Debug Drawing Boxes and Circles" />
+    <MESSAGE value="Framebuffers in OpenGL" />
+    <option name="LAST_COMMIT_MESSAGE" value="Framebuffers in OpenGL" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
