@@ -134,7 +134,7 @@ public class Window {
         this.imguiLayer = new ImGuiLayer(glfwWindow);
         this.imguiLayer.initImGui();
 
-//        this.framebuffer = new Framebuffer(1920, 1080);
+        this.framebuffer = new Framebuffer(1920, 1080);
 
         Window.changeScene(0);
     }
@@ -153,7 +153,7 @@ public class Window {
             glClearColor(r, g, b, a);
             glClear(GL_COLOR_BUFFER_BIT);
 
-            this.framebuffer.bind();
+            //this.framebuffer.bind();
             if (dt >= 0) {
                 DebugDraw.draw();
                 currentScene.update(dt);
