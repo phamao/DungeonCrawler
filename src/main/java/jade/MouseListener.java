@@ -79,7 +79,6 @@ public class MouseListener {
         return (float)(get().lastX - get().xPos);
     }
 
-
     public static float getDy() {
         return (float)(get().lastY - get().yPos);
     }
@@ -97,7 +96,7 @@ public class MouseListener {
     }
 
     public static boolean mouseButtonDown(int button) {
-        if (button < get() .mouseButtonPressed.length) {
+        if (button < get().mouseButtonPressed.length) {
             return get().mouseButtonPressed[button];
         } else {
             return false;

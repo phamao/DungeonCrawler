@@ -12,7 +12,7 @@ public class KeyListener {
     }
 
     public static KeyListener get() {
-        if (KeyListener.instance == null){
+        if (KeyListener.instance == null) {
             KeyListener.instance = new KeyListener();
         }
 

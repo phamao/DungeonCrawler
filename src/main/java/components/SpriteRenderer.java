@@ -32,7 +32,7 @@ public class SpriteRenderer extends Component {
     }
 
     @Override
-    public void update (float dt) {
+    public void update(float dt) {
         if (!this.lastTransform.equals(this.gameObject.transform)) {
             this.gameObject.transform.copy(this.lastTransform);
             isDirty = true;
@@ -66,7 +66,7 @@ public class SpriteRenderer extends Component {
     }
 
     public void setColor(Vector4f color) {
-        if (this.color.equals(color)) {
+        if (!this.color.equals(color)) {
             this.isDirty = true;
             this.color.set(color);
         }

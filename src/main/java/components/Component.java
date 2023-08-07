@@ -52,7 +52,6 @@ public abstract class Component {
                     }
                 } else if (type == boolean.class) {
                     boolean val = (boolean)value;
-                    boolean[] imBool = {val};
                     if (ImGui.checkbox(name + ": ", val)) {
                         field.set(this, !val);
                     }

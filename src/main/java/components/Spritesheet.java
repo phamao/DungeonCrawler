@@ -24,7 +24,7 @@ public class Spritesheet {
             float bottomY = currentY / (float)texture.getHeight();
 
             Vector2f[] texCoords = {
-                new Vector2f(rightX,topY),
+                new Vector2f(rightX, topY),
                 new Vector2f(rightX, bottomY),
                 new Vector2f(leftX, bottomY),
                 new Vector2f(leftX, topY)

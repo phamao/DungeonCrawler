@@ -22,7 +22,7 @@ public class Sprite {
     }
 
     public Vector2f[] getTexCoords() {
-        return  this.texCoords;
+        return this.texCoords;
     }
 
     public void setTexture(Texture tex) {

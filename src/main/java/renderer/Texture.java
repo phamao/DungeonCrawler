@@ -70,7 +70,7 @@ public class Texture {
                 assert false : "Error: (Texture) Unknown number of channels '" + channels.get(0) + "'";
             }
         } else {
-            assert  false : "Error: (Texture) Could not load image '" + filepath + "'";
+            assert false : "Error: (Texture) Could not load image '" + filepath + "'";
         }
 
         stbi_image_free(image);
@@ -106,7 +106,8 @@ public class Texture {
         if (o == null) return false;
         if (!(o instanceof Texture)) return false;
         Texture oTex = (Texture)o;
-        return oTex.getWidth() == this.width && oTex.getHeight() == this.height && oTex.getId() == this.texID &&
+        return oTex.getWidth() == this.width && oTex.getHeight() == this.height &&
+                oTex.getId() == this.texID &&
                 oTex.getFilepath().equals(this.filepath);
     }
 }

@@ -14,7 +14,7 @@ import static org.lwjgl.opengl.GL20.*;
 import static org.lwjgl.opengl.GL30.glBindVertexArray;
 import static org.lwjgl.opengl.GL30.glGenVertexArrays;
 
-public class RenderBatch implements  Comparable<RenderBatch> {
+public class RenderBatch implements Comparable<RenderBatch> {
     // Vertex
     // ======
     // Pos                  Color                           Tex Coords      Tex ID
@@ -22,7 +22,7 @@ public class RenderBatch implements  Comparable<RenderBatch> {
     private final int POS_SIZE = 2;
     private final int COLOR_SIZE = 4;
     private final int TEX_COORDS_SIZE = 2;
-    private final int  TEX_ID_SIZE = 1;
+    private final int TEX_ID_SIZE = 1;
     private final int ENTITY_ID_SIZE = 1;
 
     private final int POS_OFFSET = 0;
@@ -130,7 +130,7 @@ public class RenderBatch implements  Comparable<RenderBatch> {
         Shader shader = Renderer.getBoundShader();
         shader.uploadMat4f("uProjection", Window.getScene().camera().getProjectionMatrix());
         shader.uploadMat4f("uView", Window.getScene().camera().getViewMatrix());
-        for (int i = 0; i < textures.size(); i++ ) {
+        for (int i = 0; i < textures.size(); i++) {
             glActiveTexture(GL_TEXTURE0 + i + 1);
             textures.get(i).bind();
         }
@@ -146,21 +146,10 @@ public class RenderBatch implements  Comparable<RenderBatch> {
         glDisableVertexAttribArray(1);
         glBindVertexArray(0);
 
-        for (int i = 0; i < textures.size(); i++ ) {
+        for (int i = 0; i < textures.size(); i++) {
             textures.get(i).unbind();
         }
-
         shader.detach();
-    }
-
-    private int[] generateIndices() {
-        // 6 indices per quad (3 per triangle)
-        int[] elements = new int[6 * maxBatchSize];
-        for (int i = 0; i < maxBatchSize; i++) {
-            loadElementIndices(elements, i);
-        }
-
-        return elements;
     }
 
     private void loadVertexProperties(int index) {
@@ -218,6 +207,16 @@ public class RenderBatch implements  Comparable<RenderBatch> {
         }
     }
 
+    private int[] generateIndices() {
+        // 6 indices per quad (3 per triangle)
+        int[] elements = new int[6 * maxBatchSize];
+        for (int i=0; i < maxBatchSize; i++) {
+            loadElementIndices(elements, i);
+        }
+
+        return elements;
+    }
+
     private void loadElementIndices(int[] elements, int index) {
         int offsetArrayIndex = 6 * index;
         int offset = 4 * index;
@@ -243,7 +242,7 @@ public class RenderBatch implements  Comparable<RenderBatch> {
     }
 
     public boolean hasTexture(Texture tex) {
-        return  this.textures.contains(tex);
+        return this.textures.contains(tex);
     }
 
     public int zIndex() {
