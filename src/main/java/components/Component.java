@@ -47,7 +47,7 @@ public abstract class Component {
                 } else if (type == float.class) {
                     float val = (float)value;
                     float[] imFloat = {val};
-                    if (ImGui.dragFloat(name + ": ", imFloat)); {
+                    if (ImGui.dragFloat(name + ": ", imFloat)) {
                         field.set(this, imFloat[0]);
                     }
                 } else if (type == boolean.class) {
