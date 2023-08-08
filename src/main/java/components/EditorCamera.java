@@ -5,8 +5,7 @@ import jade.KeyListener;
 import jade.MouseListener;
 import org.joml.Vector2f;
 
-import static org.lwjgl.glfw.GLFW.GLFW_KEY_E;
-import static org.lwjgl.glfw.GLFW.GLFW_MOUSE_BUTTON_MIDDLE;
+import static org.lwjgl.glfw.GLFW.*;
 
 public class EditorCamera extends Component {
 
@@ -49,7 +48,7 @@ public class EditorCamera extends Component {
             levelEditorCamera.addZoom(addValue);
         }
 
-        if (KeyListener.isKeyPressed(GLFW_KEY_E)) {
+        if (KeyListener.isKeyPressed(GLFW_KEY_Z)) {
             reset = true;
         }
 
