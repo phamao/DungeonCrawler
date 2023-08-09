@@ -7,12 +7,12 @@
         "type": "jade.Transform",
         "properties": {
           "position": {
-            "x": -37.61798,
-            "y": 207.4
+            "x": 64.346436,
+            "y": 302.56677
           },
           "scale": {
-            "x": 32.0,
-            "y": 32.0
+            "x": 137.92422,
+            "y": 58.794556
           },
           "rotation": 7.8,
           "zIndex": 1,
@@ -56,6 +56,51 @@
             ]
           },
           "uid": 20
+        }
+      },
+      {
+        "type": "physics2d.components.CircleCollider",
+        "properties": {
+          "radius": 1.0,
+          "offset": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "uid": 59
+        }
+      },
+      {
+        "type": "physics2d.components.Box2DCollider",
+        "properties": {
+          "halfSize": {
+            "x": 1.0,
+            "y": 1.0
+          },
+          "origin": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "offset": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "uid": 60
+        }
+      },
+      {
+        "type": "physics2d.components.Rigidbody2D",
+        "properties": {
+          "velocity": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "angularDamping": 0.8,
+          "linearDamping": 0.9,
+          "mass": 0.0,
+          "bodyType": "Dynamic",
+          "fixedRotation": false,
+          "continuousCollision": true,
+          "uid": 61
         }
       }
     ],
