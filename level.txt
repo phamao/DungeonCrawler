@@ -7,8 +7,8 @@
         "type": "jade.Transform",
         "properties": {
           "position": {
-            "x": 0.0,
-            "y": 0.0
+            "x": -37.61798,
+            "y": 207.4
           },
           "scale": {
             "x": 32.0,
@@ -69,8 +69,8 @@
         "type": "jade.Transform",
         "properties": {
           "position": {
-            "x": 412.1905,
-            "y": 359.9999
+            "x": 406.25095,
+            "y": 366.46753
           },
           "scale": {
             "x": 32.0,
