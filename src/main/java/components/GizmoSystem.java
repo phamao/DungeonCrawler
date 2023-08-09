@@ -6,7 +6,7 @@ import jade.Window;
 import static org.lwjgl.glfw.GLFW.GLFW_KEY_E;
 import static org.lwjgl.glfw.GLFW.GLFW_KEY_R;
 
-public class GizmoSystem extends Component{
+public class GizmoSystem extends Component {
     private Spritesheet gizmos;
     private int usingGizmo = 0;
 

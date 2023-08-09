@@ -10,7 +10,7 @@ import util.AssetPool;
 public class LevelEditorSceneInitializer extends SceneInitializer {
 
     private Spritesheet sprites;
-     private GameObject levelEditorStuff;
+    private GameObject levelEditorStuff;
 
     public LevelEditorSceneInitializer() {
 
