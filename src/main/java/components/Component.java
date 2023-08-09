@@ -24,6 +24,10 @@ public abstract class Component {
 
     }
 
+    public void editorUpdate(float dt) {
+
+    }
+
     public void imgui() {
         try {
             Field[] fields = this.getClass().getDeclaredFields();
@@ -62,10 +66,7 @@ public abstract class Component {
                     }
                 } else if (type == Vector4f.class) {
                     Vector4f val = (Vector4f)value;
-                    float[] imVec = {val.x, val.y, val.z, val.w};
-                    if (ImGui.dragFloat4(name + ": ", imVec)) {
-                        val.set(imVec[0], imVec[1], imVec[2], imVec[3]);
-                    }
+                    JImGui.colorPicker4(name, val);
                 }
 
                 if (isPrivate) {
@@ -81,6 +82,10 @@ public abstract class Component {
         if (this.uid == -1) {
             this.uid = ID_COUNTER++;
         }
+    }
+
+    public void destroy() {
+
     }
 
     public int getUid() {

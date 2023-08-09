@@ -4,18 +4,36 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ac74943e-1386-480e-8f9e-76de047c391b" name="Changes" comment="Integrating JBox2D in our Engine">
-      <change afterPath="$PROJECT_DIR$/src/main/java/observers/EventSystem.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/observers/Observer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/observers/events/Event.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/observers/events/EventType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/physics2d/components/Collider.java" afterDir="false" />
+    <list default="true" id="ac74943e-1386-480e-8f9e-76de047c391b" name="Changes" comment="Event System and Box2D Physics">
+      <change afterPath="$PROJECT_DIR$/src/main/java/editor/MenuBar.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/scenes/SceneInitializer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/level.txt" beforeDir="false" afterPath="$PROJECT_DIR$/level.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/components/Component.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/components/Component.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/components/EditorCamera.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/components/EditorCamera.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/components/Gizmo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/components/Gizmo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/components/GizmoSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/components/GizmoSystem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/components/GridLines.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/components/GridLines.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/components/MouseControls.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/components/MouseControls.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/components/ScaleGizmo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/components/ScaleGizmo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/components/SpriteRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/components/SpriteRenderer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/components/TranslateGizmo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/components/TranslateGizmo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/editor/GameViewWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/editor/GameViewWindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/editor/JImGui.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/editor/JImGui.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/editor/PropertiesWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/editor/PropertiesWindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jade/GameObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jade/GameObject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jade/ImGuiLayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jade/ImGuiLayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jade/Window.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jade/Window.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/observers/events/Event.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/observers/events/Event.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/physics2d/Physics2D.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/physics2d/Physics2D.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/physics2d/components/Box2DCollider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/physics2d/components/Box2DCollider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/physics2d/components/CircleCollider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/physics2d/components/CircleCollider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/physics2d/components/Collider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/physics2d/components/Collider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/physics2d/components/Rigidbody2D.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/physics2d/components/Rigidbody2D.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/renderer/RenderBatch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/renderer/RenderBatch.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/renderer/Renderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/renderer/Renderer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/scenes/LevelEditorScene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/scenes/LevelEditorSceneInitializer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/scenes/LevelScene.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/scenes/Scene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/scenes/Scene.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,21 +78,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/anquo/OneDrive/Documents/CS PROJECTS/Java/Tutorial/mario/src/main/java/scenes/LevelEditorScene.java&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.project.gradle&quot;,
-    &quot;two.files.diff.last.used.file&quot;: &quot;C:/Users/anquo/OneDrive/Documents/CS PROJECTS/Java/Tutorial/mario/src/main/java/scenes/LevelEditorScene.java&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "C:/Users/anquo/OneDrive/Documents/CS PROJECTS/Java/Tutorial/mario/src/main/java/Main.java",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle",
+    "two.files.diff.last.used.file": "C:/Users/anquo/OneDrive/Documents/CS PROJECTS/Java/Tutorial/mario/src/main/java/Main.java"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
@@ -331,7 +349,15 @@
       <option name="project" value="LOCAL" />
       <updated>1691543525831</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="Event System and Box2D Physics">
+      <option name="closed" value="true" />
+      <created>1691600345395</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1691600345395</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -346,7 +372,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Batch Rendering in LWJGL3" />
     <MESSAGE value="Resource Management in LWJGL3" />
     <MESSAGE value="Texture Batching" />
     <MESSAGE value="Spritesheets" />
@@ -371,7 +396,8 @@
     <MESSAGE value="Translate and Scale Gizmo" />
     <MESSAGE value="Properties Panel" />
     <MESSAGE value="Integrating JBox2D in our Engine" />
-    <option name="LAST_COMMIT_MESSAGE" value="Integrating JBox2D in our Engine" />
+    <MESSAGE value="Event System and Box2D Physics" />
+    <option name="LAST_COMMIT_MESSAGE" value="Event System and Box2D Physics" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

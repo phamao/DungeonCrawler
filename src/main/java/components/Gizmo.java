@@ -61,6 +61,13 @@ public class Gizmo extends Component{
 
     @Override
     public void update(float dt) {
+        if (using) {
+            this.setInactive();
+        }
+    }
+
+    @Override
+    public void editorUpdate(float dt) {
         if (!using) return;
 
         this.activeGameObject = this.propertiesWindow.getActiveGameObject();
@@ -89,7 +96,7 @@ public class Gizmo extends Component{
             this.xAxisObject.transform.position.set(this.activeGameObject.transform.position);
             this.yAxisObject.transform.position.set(this.activeGameObject.transform.position);
             this.xAxisObject.transform.position.add(this.xAxisOffset);
-            this.xAxisObject.transform.position.add(this.yAxisOffset);
+            this.yAxisObject.transform.position.add(this.yAxisOffset);
         }
     }
 
