@@ -4,6 +4,22 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
+        "type": "jade.Transform",
+        "properties": {
+          "position": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "scale": {
+            "x": 32.0,
+            "y": 32.0
+          },
+          "rotation": 7.8,
+          "zIndex": 1,
+          "uid": 19
+        }
+      },
+      {
         "type": "components.SpriteRenderer",
         "properties": {
           "color": {
@@ -22,39 +38,27 @@
             },
             "texCoords": [
               {
-                "x": 0.2857143,
+                "x": 0.85714287,
                 "y": 0.9166667
               },
               {
-                "x": 0.2857143,
+                "x": 0.85714287,
                 "y": 0.8333333
               },
               {
-                "x": 0.14285715,
+                "x": 0.71428573,
                 "y": 0.8333333
               },
               {
-                "x": 0.14285715,
+                "x": 0.71428573,
                 "y": 0.9166667
               }
             ]
           },
-          "uid": 6
+          "uid": 20
         }
       }
     ],
-    "transform": {
-      "position": {
-        "x": 471.8792,
-        "y": 413.4948
-      },
-      "scale": {
-        "x": 133.47185,
-        "y": 34.262787
-      },
-      "rotation": 0.0
-    },
-    "zIndex": 0,
     "doSerialization": true
   },
   {
@@ -62,63 +66,21 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "components.SpriteRenderer",
+        "type": "jade.Transform",
         "properties": {
-          "color": {
-            "x": 1.0,
-            "y": 1.0,
-            "z": 1.0,
-            "w": 1.0
+          "position": {
+            "x": 412.1905,
+            "y": 359.9999
           },
-          "sprite": {
-            "width": 16.0,
-            "height": 16.0,
-            "texture": {
-              "filepath": "assets/images/spritesheets/decorationsAndBlocks.png",
-              "width": 112,
-              "height": 192
-            },
-            "texCoords": [
-              {
-                "x": 0.2857143,
-                "y": 0.9166667
-              },
-              {
-                "x": 0.2857143,
-                "y": 0.8333333
-              },
-              {
-                "x": 0.14285715,
-                "y": 0.8333333
-              },
-              {
-                "x": 0.14285715,
-                "y": 0.9166667
-              }
-            ]
+          "scale": {
+            "x": 32.0,
+            "y": 32.0
           },
-          "uid": 7
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 39
         }
-      }
-    ],
-    "transform": {
-      "position": {
-        "x": 468.98703,
-        "y": 227.87895
       },
-      "scale": {
-        "x": 32.0,
-        "y": 32.0
-      },
-      "rotation": 0.0
-    },
-    "zIndex": 0,
-    "doSerialization": true
-  },
-  {
-    "uid": 3,
-    "name": "Sprite_Object_Gen",
-    "components": [
       {
         "type": "components.SpriteRenderer",
         "properties": {
@@ -138,39 +100,27 @@
             },
             "texCoords": [
               {
-                "x": 0.2857143,
+                "x": 0.42857143,
                 "y": 0.9166667
               },
               {
+                "x": 0.42857143,
+                "y": 0.8333333
+              },
+              {
                 "x": 0.2857143,
                 "y": 0.8333333
               },
               {
-                "x": 0.14285715,
-                "y": 0.8333333
-              },
-              {
-                "x": 0.14285715,
+                "x": 0.2857143,
                 "y": 0.9166667
               }
             ]
           },
-          "uid": 8
+          "uid": 40
         }
       }
     ],
-    "transform": {
-      "position": {
-        "x": 346.1821,
-        "y": 255.03154
-      },
-      "scale": {
-        "x": 32.0,
-        "y": 32.0
-      },
-      "rotation": 0.0
-    },
-    "zIndex": 0,
     "doSerialization": true
   }
 ]
