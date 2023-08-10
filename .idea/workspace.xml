@@ -4,18 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ac74943e-1386-480e-8f9e-76de047c391b" name="Changes" comment="Scene Panel Drag &amp; Drop (ImGui)">
+    <list default="true" id="ac74943e-1386-480e-8f9e-76de047c391b" name="Changes" comment="Even More Bug Fixing">
+      <change afterPath="$PROJECT_DIR$/src/main/java/components/AnimationState.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/components/Frame.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/components/StateMachine.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/imgui.ini" beforeDir="false" afterPath="$PROJECT_DIR$/imgui.ini" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/level.txt" beforeDir="false" afterPath="$PROJECT_DIR$/level.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/components/EditorCamera.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/components/EditorCamera.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/components/Gizmo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/components/Gizmo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/components/MouseControls.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/components/MouseControls.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/components/ScaleGizmo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/components/ScaleGizmo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/components/TranslateGizmo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/components/TranslateGizmo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/editor/GameViewWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/editor/GameViewWindow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/jade/MouseListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jade/MouseListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jade/Prefabs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jade/Prefabs.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/scenes/LevelEditorSceneInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/scenes/LevelEditorSceneInitializer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/scenes/Scene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/scenes/Scene.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -371,7 +369,15 @@
       <option name="project" value="LOCAL" />
       <updated>1691624446533</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="Even More Bug Fixing">
+      <option name="closed" value="true" />
+      <created>1691633020838</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1691633020838</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -386,7 +392,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Alpha Blending and Z-Indexing" />
     <MESSAGE value="Integrating ImGui" />
     <MESSAGE value="ImGui Fonts and Scene Integration" />
     <MESSAGE value="Serialization with Gson" />
@@ -411,7 +416,8 @@
     <MESSAGE value="Refactoring and Physics" />
     <MESSAGE value="Beginning Scene Hierarchy &amp; ImGui Upgrade" />
     <MESSAGE value="Scene Panel Drag &amp; Drop (ImGui)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Scene Panel Drag &amp; Drop (ImGui)" />
+    <MESSAGE value="Even More Bug Fixing" />
+    <option name="LAST_COMMIT_MESSAGE" value="Even More Bug Fixing" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
