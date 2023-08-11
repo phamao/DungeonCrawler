@@ -4,16 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ac74943e-1386-480e-8f9e-76de047c391b" name="Changes" comment="Even More Bug Fixing">
-      <change afterPath="$PROJECT_DIR$/src/main/java/components/AnimationState.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/components/Frame.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/components/StateMachine.java" afterDir="false" />
+    <list default="true" id="ac74943e-1386-480e-8f9e-76de047c391b" name="Changes" comment="2D Animations">
+      <change afterPath="$PROJECT_DIR$/src/main/java/jade/Sound.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/imgui.ini" beforeDir="false" afterPath="$PROJECT_DIR$/imgui.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/level.txt" beforeDir="false" afterPath="$PROJECT_DIR$/level.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/components/MouseControls.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/components/MouseControls.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/jade/Prefabs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jade/Prefabs.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jade/ImGuiLayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jade/ImGuiLayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jade/Window.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jade/Window.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/scenes/LevelEditorSceneInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/scenes/LevelEditorSceneInitializer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/util/AssetPool.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/util/AssetPool.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -377,7 +374,15 @@
       <option name="project" value="LOCAL" />
       <updated>1691633020838</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="2D Animations">
+      <option name="closed" value="true" />
+      <created>1691711316725</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1691711316725</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -392,7 +397,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Integrating ImGui" />
     <MESSAGE value="ImGui Fonts and Scene Integration" />
     <MESSAGE value="Serialization with Gson" />
     <MESSAGE value="Deserialization with Gson" />
@@ -417,7 +421,8 @@
     <MESSAGE value="Beginning Scene Hierarchy &amp; ImGui Upgrade" />
     <MESSAGE value="Scene Panel Drag &amp; Drop (ImGui)" />
     <MESSAGE value="Even More Bug Fixing" />
-    <option name="LAST_COMMIT_MESSAGE" value="Even More Bug Fixing" />
+    <MESSAGE value="2D Animations" />
+    <option name="LAST_COMMIT_MESSAGE" value="2D Animations" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
