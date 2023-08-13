@@ -10,9 +10,9 @@ public class AnimationState {
     public List<Frame> animationFrames = new ArrayList<>();
 
     private static Sprite defaultSprite = new Sprite();
-    private transient float timeTracker = 0.0f;
+    private float time = 0.0f;
     private transient int currentSprite = 0;
-    public boolean doesLoop = false;
+    private boolean doesLoop = false;
 
     public void refreshTextures() {
         for (Frame frame : animationFrames) {
@@ -24,18 +24,24 @@ public class AnimationState {
         animationFrames.add(new Frame(sprite, frameTime));
     }
 
+    public void addFrames(List<Sprite> sprites, float frameTime) {
+        for (Sprite sprite : sprites) {
+            this.animationFrames.add(new Frame(sprite, frameTime));
+        }
+    }
+
     public void setLoop(boolean doesLoop) {
         this.doesLoop = doesLoop;
     }
 
     public void update(float dt) {
         if (currentSprite < animationFrames.size()) {
-            timeTracker -= dt;
-            if (timeTracker <= 0) {
-                if (currentSprite != animationFrames.size() - 1 || doesLoop) {
+            time -= dt;
+            if (time <= 0) {
+                if (!(currentSprite == animationFrames.size() - 1 && !doesLoop)) {
                     currentSprite = (currentSprite + 1) % animationFrames.size();
                 }
-                timeTracker = animationFrames.get(currentSprite).frameTime;
+                time = animationFrames.get(currentSprite).frameTime;
             }
         }
     }

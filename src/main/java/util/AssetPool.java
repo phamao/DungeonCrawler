@@ -10,8 +10,6 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
-import static java.time.chrono.JapaneseEra.values;
-
 public class AssetPool {
     private static Map<String, Shader> shaders = new HashMap<>();
     private static Map<String, Texture> textures = new HashMap<>();

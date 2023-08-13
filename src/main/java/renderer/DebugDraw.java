@@ -9,7 +9,6 @@ import util.JMath;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Vector;
 
 import static org.lwjgl.opengl.GL15.*;
 import static org.lwjgl.opengl.GL20.*;
@@ -64,6 +63,7 @@ public class DebugDraw {
         }
     }
 
+
     public static void draw() {
         if (lines.size() <= 0) return;
 
@@ -83,12 +83,11 @@ public class DebugDraw {
                 vertexArray[index + 4] = color.y;
                 vertexArray[index + 5] = color.z;
                 index += 6;
-
             }
         }
 
         glBindBuffer(GL_ARRAY_BUFFER, vboID);
-        glBufferSubData(GL_ARRAY_BUFFER, 0, Arrays.copyOfRange(vertexArray, 0, lines.size() * 6 * 2));
+        glBufferData(GL_ARRAY_BUFFER, vertexArray, GL_DYNAMIC_DRAW);
 
         // Use our shader
         shader.use();
@@ -112,13 +111,14 @@ public class DebugDraw {
         shader.detach();
     }
 
-    // ====================================================================
+    // ==================================================
     // Add line2D methods
-    // ====================================================================
+    // ==================================================
     public static void addLine2D(Vector2f from, Vector2f to) {
-        // TODO: ADD CONTANTS FOR COMMON COLORS
+        // TODO: ADD CONSTANTS FOR COMMON COLORS
         addLine2D(from, to, new Vector3f(0, 1, 0), 1);
     }
+
     public static void addLine2D(Vector2f from, Vector2f to, Vector3f color) {
         addLine2D(from, to, color, 1);
     }
@@ -128,24 +128,26 @@ public class DebugDraw {
         DebugDraw.lines.add(new Line2D(from, to, color, lifetime));
     }
 
-    // ====================================================================
+    // ==================================================
     // Add Box2D methods
-    // ====================================================================
+    // ==================================================
     public static void addBox2D(Vector2f center, Vector2f dimensions, float rotation) {
-        // TODO: ADD CONTANTS FOR COMMON COLORS
+        // TODO: ADD CONSTANTS FOR COMMON COLORS
         addBox2D(center, dimensions, rotation, new Vector3f(0, 1, 0), 1);
     }
+
     public static void addBox2D(Vector2f center, Vector2f dimensions, float rotation, Vector3f color) {
         addBox2D(center, dimensions, rotation, color, 1);
     }
 
-    public static void addBox2D(Vector2f center, Vector2f dimensions, float rotation, Vector3f color, int lifetime) {
+    public static void addBox2D(Vector2f center, Vector2f dimensions, float rotation,
+                                Vector3f color, int lifetime) {
         Vector2f min = new Vector2f(center).sub(new Vector2f(dimensions).mul(0.5f));
         Vector2f max = new Vector2f(center).add(new Vector2f(dimensions).mul(0.5f));
 
         Vector2f[] vertices = {
-          new Vector2f(min.x, min.y), new Vector2f(min.x, max.y),
-          new Vector2f(max.x, max.y), new Vector2f(max.x, min.y)
+              new Vector2f(min.x, min.y), new Vector2f(min.x, max.y),
+              new Vector2f(max.x, max.y), new Vector2f(max.x, min.y)
         };
 
         if (rotation != 0.0f) {
@@ -160,13 +162,14 @@ public class DebugDraw {
         addLine2D(vertices[2], vertices[3], color, lifetime);
     }
 
-    // ====================================================================
+    // ==================================================
     // Add Circle methods
-    // ====================================================================
+    // ==================================================
     public static void addCircle(Vector2f center, float radius) {
-        // TODO: ADD CONTANTS FOR COMMON COLORS
+        // TODO: ADD CONSTANTS FOR COMMON COLORS
         addCircle(center, radius, new Vector3f(0, 1, 0), 1);
     }
+
     public static void addCircle(Vector2f center, float radius, Vector3f color) {
         addCircle(center, radius, color, 1);
     }

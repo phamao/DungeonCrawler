@@ -46,14 +46,15 @@ public class Physics2D {
             bodyDef.userData = rb.gameObject;
 
             switch (rb.getBodyType()) {
-                case Kinematic : bodyDef.type = BodyType.KINEMATIC; break;
-                case Static : bodyDef.type = BodyType.STATIC; break;
-                case Dynamic : bodyDef.type = BodyType.DYNAMIC; break;
+                case Kinematic: bodyDef.type = BodyType.KINEMATIC; break;
+                case Static: bodyDef.type = BodyType.STATIC; break;
+                case Dynamic: bodyDef.type = BodyType.DYNAMIC; break;
             }
 
             Body body = this.world.createBody(bodyDef);
             body.m_mass = rb.getMass();
             rb.setRawBody(body);
+
             CircleCollider circleCollider;
             Box2DCollider boxCollider;
             PillboxCollider pillboxCollider;
@@ -173,17 +174,10 @@ public class Physics2D {
         FixtureDef fixtureDef = new FixtureDef();
         fixtureDef.shape = shape;
         fixtureDef.density = 1.0f;
-//        fixtureDef.friction = rb.getFriction();
+        fixtureDef.friction = rb.getFriction();
         fixtureDef.userData = boxCollider.gameObject;
-//        fixtureDef.isSensor = rb.isSensor();
+        fixtureDef.isSensor = rb.isSensor();
         body.createFixture(fixtureDef);
-    }
-
-    public RaycastInfo raycast(GameObject requestingObject, Vector2f point1, Vector2f point2) {
-        RaycastInfo callback = new RaycastInfo(requestingObject);
-        world.raycast(callback, new Vec2 (point1.x, point1.y),
-                new Vec2(point2.x, point2.y));
-        return callback;
     }
 
     public void addCircleCollider(Rigidbody2D rb, CircleCollider circleCollider) {
@@ -201,6 +195,13 @@ public class Physics2D {
         fixtureDef.userData = circleCollider.gameObject;
         fixtureDef.isSensor = rb.isSensor();
         body.createFixture(fixtureDef);
+    }
+
+    public RaycastInfo raycast(GameObject requestingObject, Vector2f point1, Vector2f point2) {
+        RaycastInfo callback = new RaycastInfo(requestingObject);
+        world.raycast(callback, new Vec2(point1.x, point1.y),
+                new Vec2(point2.x, point2.y));
+        return callback;
     }
 
     private int fixtureListSize(Body body) {

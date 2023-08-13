@@ -65,22 +65,22 @@ public class GameObject {
         }
     }
 
+    public void editorUpdate(float dt) {
+        for (int i=0; i < components.size(); i++) {
+            components.get(i).editorUpdate(dt);
+        }
+    }
+
     public void start() {
         for (int i = 0; i < components.size(); i++) {
             components.get(i).start();
         }
     }
 
-    public void editorUpdate(float dt) {
-        for (int i = 0; i < components.size(); i++) {
-            components.get(i).editorUpdate(dt);
-        }
-    }
-
     public void imgui() {
         for (Component c : components) {
             if (ImGui.collapsingHeader(c.getClass().getSimpleName()))
-            c.imgui();
+                c.imgui();
         }
     }
 

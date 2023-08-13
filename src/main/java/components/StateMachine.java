@@ -15,6 +15,7 @@ public class StateMachine extends Component {
         public String trigger;
 
         public StateTrigger() {}
+
         public StateTrigger(String state, String trigger) {
             this.state = state;
             this.trigger = trigger;
@@ -29,7 +30,7 @@ public class StateMachine extends Component {
 
         @Override
         public int hashCode() {
-            return Objects.hash(trigger, state);
+            return Objects.hash(state, trigger);
         }
     }
 
@@ -44,8 +45,18 @@ public class StateMachine extends Component {
         }
     }
 
-    public void addStateTrigger(String from, String to, String onTrigger) {
-        this.stateTransfers.put(new StateTrigger(from, onTrigger), to);
+    public void setDefaultState(String animationTitle) {
+        for (AnimationState state : states) {
+            if (state.title.equals(animationTitle)) {
+                defaultStateTitle = animationTitle;
+                if (currentState == null) {
+                    currentState = state;
+                }
+                return;
+            }
+        }
+
+        System.out.println("Unable to find default state '" + animationTitle + "'");
     }
 
     public void addState(String from, String to, String onTrigger) {
@@ -54,20 +65,6 @@ public class StateMachine extends Component {
 
     public void addState(AnimationState state) {
         this.states.add(state);
-    }
-
-    public void setDefaultState(String animationTitle) {
-        for (AnimationState state : states) {
-            if (state.title.equals(animationTitle)) {
-                defaultStateTitle = animationTitle;
-                if (currentState == null) {
-                    currentState = state;
-                    return;
-                }
-            }
-        }
-
-        System.out.println("Unable to find state '" + animationTitle + "' in set default state");
     }
 
     public void trigger(String trigger) {
@@ -82,8 +79,6 @@ public class StateMachine extends Component {
                 return;
             }
         }
-
-        System.out.println("Unable to find trigger '" + trigger + "'");
     }
 
     private int stateIndexOf(String stateTitle) {
@@ -132,16 +127,13 @@ public class StateMachine extends Component {
 
     @Override
     public void imgui() {
-        int index = 0;
         for (AnimationState state : states) {
             ImString title = new ImString(state.title);
             ImGui.inputText("State: ", title);
             state.title = title.get();
 
-            ImBoolean doesLoop = new ImBoolean(state.doesLoop);
-            ImGui.checkbox("Does Loop? ", doesLoop);
-            state.setLoop(doesLoop.get());
-            for (Frame frame :state.animationFrames) {
+            int index = 0;
+            for (Frame frame : state.animationFrames) {
                 float[] tmp = new float[1];
                 tmp[0] = frame.frameTime;
                 ImGui.dragFloat("Frame(" + index + ") Time: ", tmp, 0.01f);

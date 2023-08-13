@@ -12,7 +12,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.lwjgl.opengl.GL15.*;
-import static org.lwjgl.opengl.GL20.*;
+import static org.lwjgl.opengl.GL20.glDisableVertexAttribArray;
+import static org.lwjgl.opengl.GL20.glEnableVertexAttribArray;
+import static org.lwjgl.opengl.GL20C.glVertexAttribPointer;
 import static org.lwjgl.opengl.GL30.glBindVertexArray;
 import static org.lwjgl.opengl.GL30.glGenVertexArrays;
 
@@ -133,9 +135,7 @@ public class RenderBatch implements Comparable<RenderBatch> {
                 i--;
             }
         }
-
         if (rebufferData) {
-            // For now, we will rebuffer all data every frame
             glBindBuffer(GL_ARRAY_BUFFER, vboID);
             glBufferSubData(GL_ARRAY_BUFFER, 0, vertices);
         }
@@ -205,7 +205,7 @@ public class RenderBatch implements Comparable<RenderBatch> {
         Matrix4f transformMatrix = new Matrix4f().identity();
         if (isRotated) {
             transformMatrix.translate(sprite.gameObject.transform.position.x,
-                    sprite.gameObject.transform.position.y, 0f);
+                                        sprite.gameObject.transform.position.y, 0f);
             transformMatrix.rotate((float)Math.toRadians(sprite.gameObject.transform.rotation),
                     0, 0, 1);
             transformMatrix.scale(sprite.gameObject.transform.scale.x,

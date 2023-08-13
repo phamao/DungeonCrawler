@@ -4,22 +4,45 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ac74943e-1386-480e-8f9e-76de047c391b" name="Changes" comment="How to Use Box2D Physics">
-      <change afterPath="$PROJECT_DIR$/src/main/java/components/Ground.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/components/PlayerController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/physics2d/components/PillboxCollider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="ac74943e-1386-480e-8f9e-76de047c391b" name="Changes" comment="Pillbox Colliders and Player Controllers">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/imgui.ini" beforeDir="false" afterPath="$PROJECT_DIR$/imgui.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/components/AnimationState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/components/AnimationState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/components/EditorCamera.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/components/EditorCamera.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/components/Frame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/components/Frame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/components/Gizmo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/components/Gizmo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/components/GridLines.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/components/GridLines.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/components/KeyControls.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/components/KeyControls.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/components/MouseControls.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/components/MouseControls.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/components/NonPickable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/components/NonPickable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/components/PlayerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/components/PlayerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/components/ScaleGizmo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/components/ScaleGizmo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/components/Sprite.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/components/Sprite.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/components/SpriteRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/components/SpriteRenderer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/components/Spritesheet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/components/Spritesheet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/components/StateMachine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/components/StateMachine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/components/TranslateGizmo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/components/TranslateGizmo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/editor/GameViewWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/editor/GameViewWindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/editor/PropertiesWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/editor/PropertiesWindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jade/Camera.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jade/Camera.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/jade/GameObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jade/GameObject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jade/ImGuiLayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jade/ImGuiLayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jade/MouseListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jade/MouseListener.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/jade/Prefabs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jade/Prefabs.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jade/Window.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jade/Window.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/physics2d/Physics2D.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/physics2d/Physics2D.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/physics2d/components/Box2DCollider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/physics2d/components/Box2DCollider.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/physics2d/components/CircleCollider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/physics2d/components/CircleCollider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/physics2d/components/Collider.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/physics2d/components/PillboxCollider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/physics2d/components/PillboxCollider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/physics2d/components/Rigidbody2D.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/physics2d/components/Rigidbody2D.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/renderer/DebugDraw.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/renderer/DebugDraw.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/renderer/PickingTexture.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/renderer/PickingTexture.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/renderer/RenderBatch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/renderer/RenderBatch.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/renderer/Renderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/renderer/Renderer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/renderer/Shader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/renderer/Shader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/renderer/Texture.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/renderer/Texture.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/scenes/LevelEditorSceneInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/scenes/LevelEditorSceneInitializer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/scenes/Scene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/scenes/Scene.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/util/AssetPool.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/util/AssetPool.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/util/JMath.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/util/JMath.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,21 +87,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/anquo/OneDrive/Documents/CS PROJECTS/Java/Tutorial/mario/src/main/java/editor/SceneHierarchyWindow.java&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.project.gradle&quot;,
-    &quot;two.files.diff.last.used.file&quot;: &quot;C:/Users/anquo/OneDrive/Documents/CS PROJECTS/Java/Tutorial/mario/src/main/java/editor/SceneHierarchyWindow.java&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "C:/Users/anquo/OneDrive/Documents/CS PROJECTS/Java/Tutorial/mario/src/main/java/util/Settings.java",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle",
+    "two.files.diff.last.used.file": "C:/Users/anquo/OneDrive/Documents/CS PROJECTS/Java/Tutorial/mario/src/main/java/util/Settings.java"
   }
-}</component>
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\anquo\OneDrive\Documents\CS PROJECTS\Java\Tutorial\mario\src\main\java\components" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
@@ -415,7 +443,15 @@
       <option name="project" value="LOCAL" />
       <updated>1691784449645</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="Pillbox Colliders and Player Controllers">
+      <option name="closed" value="true" />
+      <created>1691962092731</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1691962092731</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -430,7 +466,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Exposing Variables to the Level Editor" />
     <MESSAGE value="Converting Screen Coords to World Coords" />
     <MESSAGE value="Drag 'N Drop Level Editor" />
     <MESSAGE value="Debug Drawing Functions" />
@@ -455,7 +490,8 @@
     <MESSAGE value="Sounds with OpenAL" />
     <MESSAGE value="Improving the Editor" />
     <MESSAGE value="How to Use Box2D Physics" />
-    <option name="LAST_COMMIT_MESSAGE" value="How to Use Box2D Physics" />
+    <MESSAGE value="Pillbox Colliders and Player Controllers" />
+    <option name="LAST_COMMIT_MESSAGE" value="Pillbox Colliders and Player Controllers" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

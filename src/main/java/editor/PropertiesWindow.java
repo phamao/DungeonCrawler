@@ -2,7 +2,6 @@ package editor;
 
 import components.NonPickable;
 import components.SpriteRenderer;
-import components.Spritesheet;
 import imgui.ImGui;
 import jade.GameObject;
 import jade.MouseListener;
@@ -20,14 +19,14 @@ import static org.lwjgl.glfw.GLFW.GLFW_MOUSE_BUTTON_LEFT;
 
 public class PropertiesWindow {
     private List<GameObject> activeGameObjects;
-    private List<Vector4f> activeGameObjectOgColor;
+    private List<Vector4f> activeGameObjectsOgColor;
     private GameObject activeGameObject = null;
     private PickingTexture pickingTexture;
 
     public PropertiesWindow(PickingTexture pickingTexture) {
         this.activeGameObjects = new ArrayList<>();
         this.pickingTexture = pickingTexture;
-        this.activeGameObjectOgColor = new ArrayList<>();
+        this.activeGameObjectsOgColor = new ArrayList<>();
     }
 
     public void imgui() {
@@ -74,17 +73,18 @@ public class PropertiesWindow {
     }
 
     public void clearSelected() {
-        if (activeGameObjectOgColor.size() > 0) {
+        if (activeGameObjectsOgColor.size() > 0) {
             int i = 0;
             for (GameObject go : activeGameObjects) {
                 SpriteRenderer spr = go.getComponent(SpriteRenderer.class);
                 if (spr != null) {
-                    spr.setColor(activeGameObjectOgColor.get(i));
+                    spr.setColor(activeGameObjectsOgColor.get(i));
                 }
                 i++;
             }
         }
         this.activeGameObjects.clear();
+        this.activeGameObjectsOgColor.clear();
     }
 
     public void setActiveGameObject(GameObject go) {
@@ -96,11 +96,11 @@ public class PropertiesWindow {
 
     public void addActiveGameObject(GameObject go) {
         SpriteRenderer spr = go.getComponent(SpriteRenderer.class);
-        if (spr != null) {
-            this.activeGameObjectOgColor.add(new Vector4f(spr.getColor()));
-            spr.setColor(new Vector4f(0.8f, 0.8f, 0.8f, 0.8f));
+        if (spr != null ) {
+            this.activeGameObjectsOgColor.add(new Vector4f(spr.getColor()));
+            spr.setColor(new Vector4f(0.8f, 0.8f, 0.0f, 0.8f));
         } else {
-            this.activeGameObjectOgColor.add(new Vector4f());
+            this.activeGameObjectsOgColor.add(new Vector4f());
         }
         this.activeGameObjects.add(go);
     }

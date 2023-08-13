@@ -3,8 +3,6 @@ package components;
 import org.joml.Vector2f;
 import renderer.Texture;
 
-import java.util.Vector;
-
 public class Sprite {
 
     private float width, height;
@@ -25,14 +23,6 @@ public class Sprite {
         return this.texCoords;
     }
 
-    public void setTexture(Texture tex) {
-        this.texture = tex;
-    }
-
-    public void setTexCoords(Vector2f[] texCoords) {
-        this.texCoords = texCoords;
-    }
-
     public float getWidth() {
         return width;
     }
@@ -47,6 +37,14 @@ public class Sprite {
 
     public void setHeight(float height) {
         this.height = height;
+    }
+
+    public void setTexture(Texture tex) {
+        this.texture = tex;
+    }
+
+    public void setTexCoords(Vector2f[] texCoords) {
+        this.texCoords = texCoords;
     }
 
     public int getTexId() {

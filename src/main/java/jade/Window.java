@@ -1,5 +1,6 @@
 package jade;
 
+import editor.GameViewWindow;
 import observers.EventSystem;
 import observers.Observer;
 import observers.events.Event;
@@ -70,7 +71,7 @@ public class Window implements Observer {
     public static Physics2D getPhysics() { return currentScene.getPhysics(); }
 
     public static Scene getScene() {
-        return get().currentScene;
+        return currentScene;
     }
 
     public void run() {
@@ -139,9 +140,9 @@ public class Window implements Observer {
         alcMakeContextCurrent(audioContext);
 
         ALCCapabilities alcCapabilities = ALC.createCapabilities(audioDevice);
-        ALCapabilities alCapabilities1 = AL.createCapabilities(alcCapabilities);
+        ALCapabilities alCapabilities = AL.createCapabilities(alcCapabilities);
 
-        if (!alCapabilities1.OpenAL10) {
+        if (!alCapabilities.OpenAL10) {
             assert false : "Audio library not supported.";
         }
 
@@ -174,7 +175,7 @@ public class Window implements Observer {
         Shader pickingShader = AssetPool.getShader("assets/shaders/pickingShader.glsl");
 
         while (!glfwWindowShouldClose(glfwWindow)) {
-            //Poll events
+            // Poll events
             glfwPollEvents();
 
             // Render pass 1. Render to picking texture
@@ -190,8 +191,8 @@ public class Window implements Observer {
 
             pickingTexture.disableWriting();
             glEnable(GL_BLEND);
-            // Render pass 2. Render actual game
 
+            // Render pass 2. Render actual game
             DebugDraw.beginFrame();
 
             this.framebuffer.bind();
@@ -253,19 +254,19 @@ public class Window implements Observer {
     @Override
     public void onNotify(GameObject object, Event event) {
         switch (event.type) {
-            case GameEngineStartPlay :
+            case GameEngineStartPlay:
                 this.runtimePlaying = true;
                 currentScene.save();
                 Window.changeScene(new LevelEditorSceneInitializer());
                 break;
-            case GameEngineStopPlay :
+            case GameEngineStopPlay:
                 this.runtimePlaying = false;
                 Window.changeScene(new LevelEditorSceneInitializer());
                 break;
-            case LoadLevel :
+            case LoadLevel:
                 Window.changeScene(new LevelEditorSceneInitializer());
                 break;
-            case SaveLevel :
+            case SaveLevel:
                 currentScene.save();
                 break;
         }

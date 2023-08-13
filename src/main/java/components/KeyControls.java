@@ -34,10 +34,10 @@ public class KeyControls extends Component {
                 propertiesWindow.addActiveGameObject(copy);
             }
         } else if (KeyListener.keyBeginPress(GLFW_KEY_DELETE)) {
-           for (GameObject go : activeGameObjects) {
-               go.destroy();
-           }
-           propertiesWindow.clearSelected();
+            for (GameObject go : activeGameObjects) {
+                go.destroy();
+            }
+            propertiesWindow.clearSelected();
         }
     }
 }

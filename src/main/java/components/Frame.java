@@ -1,6 +1,6 @@
 package components;
 
-public class Frame {
+class Frame {
     public Sprite sprite;
     public float frameTime;
 
@@ -8,8 +8,8 @@ public class Frame {
 
     }
 
-    public Frame(Sprite sprite, float time) {
+    public Frame(Sprite sprite, float frameTime) {
         this.sprite = sprite;
-        this.frameTime = time;
+        this.frameTime = frameTime;
     }
 }

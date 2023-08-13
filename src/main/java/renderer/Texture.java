@@ -31,7 +31,6 @@ public class Texture {
 
         glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height,
                 0, GL_RGB, GL_UNSIGNED_BYTE, 0);
-
     }
 
     public void init(String filepath) {
@@ -78,7 +77,6 @@ public class Texture {
 
     public void bind() {
         glBindTexture(GL_TEXTURE_2D, texID);
-
     }
 
     public void unbind() {

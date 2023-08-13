@@ -13,7 +13,7 @@ public class Box2DCollider extends Component {
         return this.offset;
     }
 
-    public void setOffset(Vector2f newOffset) {this.offset.set(newOffset); }
+    public void setOffset(Vector2f newOffset) { this.offset.set(newOffset); }
 
     public Vector2f getHalfSize() {
         return halfSize;

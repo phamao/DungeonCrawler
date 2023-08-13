@@ -6,7 +6,6 @@ import imgui.flag.ImGuiWindowFlags;
 import jade.MouseListener;
 import jade.Window;
 import observers.EventSystem;
-import observers.Observer;
 import observers.events.Event;
 import observers.events.EventType;
 import org.joml.Vector2f;
@@ -18,7 +17,7 @@ public class GameViewWindow {
 
     public void imgui() {
         ImGui.begin("Game Viewport", ImGuiWindowFlags.NoScrollbar | ImGuiWindowFlags.NoScrollWithMouse
-            | ImGuiWindowFlags.MenuBar);
+                        | ImGuiWindowFlags.MenuBar);
 
         ImGui.beginMenuBar();
         if (ImGui.menuItem("Play", "", isPlaying, !isPlaying)) {
@@ -31,13 +30,14 @@ public class GameViewWindow {
         }
         ImGui.endMenuBar();
 
+
         ImGui.setCursorPos(ImGui.getCursorPosX(), ImGui.getCursorPosY());
         ImVec2 windowSize = getLargestSizeForViewport();
         ImVec2 windowPos = getCenteredPositionForViewport(windowSize);
         ImGui.setCursorPos(windowPos.x, windowPos.y);
         leftX = windowPos.x + 600;
-        bottomY = windowPos.y;
         rightX = windowPos.x + windowSize.x + 600;
+        bottomY = windowPos.y;
         topY = windowPos.y + windowSize.y;
 
         int textureId = Window.getFramebuffer().getTextureId();
@@ -65,6 +65,7 @@ public class GameViewWindow {
             aspectHeight = windowSize.y;
             aspectWidth = aspectHeight * Window.getTargetAspectRatio();
         }
+
         return new ImVec2(aspectWidth, aspectHeight);
     }
 
@@ -75,7 +76,6 @@ public class GameViewWindow {
         float viewportX = (windowSize.x / 2.0f) - (aspectSize.x / 2.0f);
         float viewportY = (windowSize.y / 2.0f) - (aspectSize.y / 2.0f);
 
-        return new ImVec2(viewportX + ImGui.getCursorPosX(),
-                viewportY + ImGui.getCursorPosY());
+        return new ImVec2(viewportX + ImGui.getCursorPosX(), viewportY + ImGui.getCursorPosY());
     }
 }

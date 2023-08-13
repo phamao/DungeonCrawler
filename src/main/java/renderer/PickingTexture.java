@@ -1,6 +1,5 @@
 package renderer;
 
-import org.joml.Vector2f;
 import org.joml.Vector2i;
 
 import static org.lwjgl.opengl.GL11.GL_TEXTURE_2D;
