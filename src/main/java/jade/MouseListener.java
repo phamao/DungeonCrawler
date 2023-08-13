@@ -186,9 +186,9 @@ public class MouseListener {
 
     public static Vector2f getScreen() {
         float currentX = getX() - get().gameViewportPos.x;
-        currentX = (currentX / get().gameViewportSize.x) * 3840.0f;
+        currentX = (currentX / get().gameViewportSize.x) * 1920.0f;
         float currentY = (getY() - get().gameViewportPos.y);
-        currentY = (1.0f - (currentY / get().gameViewportSize.y)) * 2160.0f;
+        currentY = (1.0f - (currentY / get().gameViewportSize.y)) * 1080.0f;
         return new Vector2f(currentX, currentY);
     }
 
