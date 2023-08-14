@@ -261,11 +261,11 @@ public class PlayerController extends Component {
                 pb.setHeight(0.31f);
             }
             hurtInvincibilityTimeLeft = hurtInvincibilityTime;
-            AssetPool.getSound("assets/sounds.pipe.ogg").play();
+            AssetPool.getSound("assets/sounds/pipe.ogg").play();
         } else if (playerState == PlayerState.Fire) {
             this.playerState = PlayerState.Big;
             hurtInvincibilityTimeLeft = hurtInvincibilityTime;
-            AssetPool.getSound("assets/sounds.pipe.ogg").play();
+            AssetPool.getSound("assets/sounds/pipe.ogg").play();
         }
     }
 

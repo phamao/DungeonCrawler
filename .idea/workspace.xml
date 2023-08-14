@@ -4,17 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ac74943e-1386-480e-8f9e-76de047c391b" name="Changes" comment="Mario Pipes &amp; Editor Improvements">
-      <change afterPath="$PROJECT_DIR$/src/main/java/components/GameCamera.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/scenes/LevelSceneInitializer.java" afterDir="false" />
+    <list default="true" id="ac74943e-1386-480e-8f9e-76de047c391b" name="Changes" comment="Game Camera &amp; Grid Lines">
+      <change afterPath="$PROJECT_DIR$/src/main/java/components/TurtleAI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/level.txt" beforeDir="false" afterPath="$PROJECT_DIR$/level.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/components/GridLines.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/components/GridLines.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/components/PlayerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/components/PlayerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/jade/Camera.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jade/Camera.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/jade/Window.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jade/Window.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/renderer/DebugDraw.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/renderer/DebugDraw.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/scenes/Scene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/scenes/Scene.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/components/GoombaAI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/components/GoombaAI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jade/Prefabs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jade/Prefabs.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/physics2d/Physics2D.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/physics2d/Physics2D.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/scenes/LevelEditorSceneInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/scenes/LevelEditorSceneInitializer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -455,7 +452,15 @@
       <option name="project" value="LOCAL" />
       <updated>1692049015443</updated>
     </task>
-    <option name="localTasksCounter" value="45" />
+    <task id="LOCAL-00045" summary="Game Camera &amp; Grid Lines">
+      <option name="closed" value="true" />
+      <created>1692053945997</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1692053945997</updated>
+    </task>
+    <option name="localTasksCounter" value="46" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -470,7 +475,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Framebuffers in OpenGL" />
     <MESSAGE value="Adding a Game Viewport" />
     <MESSAGE value="Mouse Screen Coordinates to Game Viewport Coordinates" />
     <MESSAGE value="Enabling Mouse Picking and Code Maintenance" />
@@ -495,7 +499,8 @@
     <MESSAGE value="Powerups" />
     <MESSAGE value="Goomba AI" />
     <MESSAGE value="Mario Pipes &amp; Editor Improvements" />
-    <option name="LAST_COMMIT_MESSAGE" value="Mario Pipes &amp; Editor Improvements" />
+    <MESSAGE value="Game Camera &amp; Grid Lines" />
+    <option name="LAST_COMMIT_MESSAGE" value="Game Camera &amp; Grid Lines" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

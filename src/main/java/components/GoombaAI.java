@@ -67,7 +67,7 @@ public class GoombaAI extends Component {
 
     public void checkOnGround() {
         float innerPlayerWidth = 0.25f * 0.7f;
-        float yVal = 0.14f;
+        float yVal = -0.14f;
         onGround = Physics2D.checkOnGround(this.gameObject, innerPlayerWidth, yVal);
     }
 
