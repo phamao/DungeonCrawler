@@ -26,7 +26,7 @@ public class PlayerController extends Component {
         Invincible
     }
 
-    public float walkSpeed = 1.9f;
+    public float walkSpeed = 1.0f;
     public float jumpBoost = 1.0f;
     public float jumpImpulse = 3.0f;
     public float slowDownForce = 0.05f;
@@ -101,66 +101,43 @@ public class PlayerController extends Component {
         }
 
         if (KeyListener.isKeyPressed(GLFW_KEY_RIGHT) || KeyListener.isKeyPressed(GLFW_KEY_D)) {
-            this.gameObject.transform.scale.x = playerWidth;
-            this.acceleration.x = walkSpeed;
+            this.velocity.x = walkSpeed;
+//            System.out.println("right");
+            this.stateMachine.trigger("startRunning");
 
             if (this.velocity.x < 0) {
                 this.stateMachine.trigger("switchDirection");
-                this.velocity.x += slowDownForce;
-            } else {
-                this.stateMachine.trigger("startRunning");
+                this.velocity.x = 0;
             }
         } else if (KeyListener.isKeyPressed(GLFW_KEY_LEFT) || KeyListener.isKeyPressed(GLFW_KEY_A)) {
-            this.gameObject.transform.scale.x = -playerWidth;
-            this.acceleration.x = -walkSpeed;
+            this.velocity.x = -walkSpeed;
+//            System.out.println("left");
+            this.stateMachine.trigger("startRunning");
 
             if (this.velocity.x > 0) {
                 this.stateMachine.trigger("switchDirection");
-                this.velocity.x -= slowDownForce;
-            } else {
-                this.stateMachine.trigger("startRunning");
+                this.velocity.x = 0;
             }
+        } else if (KeyListener.isKeyPressed(GLFW_KEY_UP) || KeyListener.isKeyPressed(GLFW_KEY_W)) {
+            this.velocity.y = walkSpeed;
+//            System.out.println("up");
+            this.stateMachine.trigger("startRunning");
+        } else if (KeyListener.isKeyPressed(GLFW_KEY_DOWN) || KeyListener.isKeyPressed(GLFW_KEY_S)) {
+            this.velocity.y = -walkSpeed;
+//            System.out.println("down");
+            this.stateMachine.trigger("startRunning");
         } else {
             this.acceleration.x = 0;
-            if (this.velocity.x > 0) {
-                this.velocity.x = Math.max(0, this.velocity.x - slowDownForce);
-            } else if (this.velocity.x < 0) {
-                this.velocity.x = Math.min(0, this.velocity.x + slowDownForce);
-            }
+            this.velocity.x = 0;
+            this.velocity.y = 0;
+            this.acceleration.y = 0;
 
             if (this.velocity.x == 0) {
                 this.stateMachine.trigger("stopRunning");
             }
         }
 
-        checkOnGround();
-        if (KeyListener.isKeyPressed(GLFW_KEY_SPACE) && (jumpTime > 0 || onGround || groundDebounce > 0)) {
-            if ((onGround || groundDebounce > 0) && jumpTime == 0) {
-                AssetPool.getSound("assets/sounds/jump-small.ogg").play();
-                jumpTime = 28;
-                this.velocity.y = jumpImpulse;
-            } else if (jumpTime > 0) {
-                jumpTime--;
-                this.velocity.y = ((jumpTime / 2.2f) * jumpBoost);
-            } else {
-                this.velocity.y = 0;
-            }
-            groundDebounce = 0;
-        } else if (enemyBounce > 0) {
-            enemyBounce--;
-            this.velocity.y = ((enemyBounce / 2.2f) * jumpBoost);
-        } else if (!onGround) {
-            if (this.jumpTime > 0) {
-                this.velocity.y *= 0.35f;
-                this.jumpTime = 0;
-            }
-            groundDebounce -= dt;
-            this.acceleration.y = Window.getPhysics().getGravity().y * 0.7f;
-        } else {
-            this.velocity.y = 0;
-            this.acceleration.y = 0;
-            groundDebounce = groundDebounceTime;
-        }
+
 
         this.velocity.x += this.acceleration.x * dt;
         this.velocity.y += this.acceleration.y * dt;
@@ -168,12 +145,6 @@ public class PlayerController extends Component {
         this.velocity.y = Math.max(Math.min(this.velocity.y, this.terminalVelocity.y), -this.terminalVelocity.y);
         this.rb.setVelocity(this.velocity);
         this.rb.setAngularVelocity(0);
-
-        if (!onGround) {
-            stateMachine.trigger("jump");
-        } else {
-            stateMachine.trigger("stopJumping");
-        }
     }
 
     public void checkOnGround() {

@@ -82,7 +82,8 @@ public class MouseControls extends Component {
             int y = (int)MouseListener.getScreenY();
             int gameObjectId = pickingTexture.readPixel(x, y);
             GameObject pickedObj = currentScene.getGameObject(gameObjectId);
-            if (pickedObj != null && pickedObj.getComponent(NonPickable.class) == null) {
+//            if (pickedObj != null && pickedObj.getComponent(NonPickable.class) == null) {
+            if (pickedObj != null) {
                 Window.getImguiLayer().getPropertiesWindow().setActiveGameObject(pickedObj);
             } else if (pickedObj == null && !MouseListener.isDragging()) {
                 Window.getImguiLayer().getPropertiesWindow().clearSelected();
