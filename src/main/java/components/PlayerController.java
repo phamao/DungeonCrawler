@@ -1,8 +1,6 @@
 package components;
 
-import jade.GameObject;
-import jade.KeyListener;
-import jade.Window;
+import jade.*;
 import org.jbox2d.dynamics.contacts.Contact;
 import org.joml.Vector2f;
 import org.joml.Vector4f;
@@ -54,6 +52,10 @@ public class PlayerController extends Component {
     private transient float blinkTime = 0.0f;
     private transient SpriteRenderer spr;
 
+    private transient boolean playWinAnimation = false;
+    private transient float timeToCastle = 4.5f;
+    private transient float walkTime = 2.2f;
+
     @Override
     public void start() {
         this.spr = gameObject.getComponent(SpriteRenderer.class);
@@ -64,6 +66,33 @@ public class PlayerController extends Component {
 
     @Override
     public void update(float dt) {
+        if (playWinAnimation) {
+            checkOnGround();
+            if (!onGround) {
+                gameObject.transform.scale.x = -0.25f;
+                gameObject.transform.position.y -= dt;
+                stateMachine.trigger("stopRunning");
+                stateMachine.trigger("stopJumping");
+            } else {
+                if (this.walkTime > 0) {
+                    gameObject.transform.scale.x = 0.25f;
+                    gameObject.transform.position.x += dt;
+                    stateMachine.trigger("startRunning");
+                }
+                if (!AssetPool.getSound("assets/sounds/stage_clear.ogg").isPlaying()) {
+                    AssetPool.getSound("assets/sounds/stage_clear.ogg").play();
+                }
+                timeToCastle -= dt;
+                walkTime -= dt;
+
+                if (timeToCastle <= 0) {
+                    Window.changeScene(new LevelEditorSceneInitializer());
+                }
+            }
+
+            return;
+        }
+
         if (isDead) {
             if (this.gameObject.transform.position.y < deadMaxHeight && deadGoingUp) {
                 this.gameObject.transform.position.y += dt * walkSpeed / 2.0f;
@@ -101,22 +130,24 @@ public class PlayerController extends Component {
         }
 
         if (KeyListener.isKeyPressed(GLFW_KEY_RIGHT) || KeyListener.isKeyPressed(GLFW_KEY_D)) {
+            this.gameObject.transform.scale.x = playerWidth;
             this.velocity.x = walkSpeed;
-//            System.out.println("right");
-            this.stateMachine.trigger("startRunning");
-
-            if (this.velocity.x < 0) {
-                this.stateMachine.trigger("switchDirection");
-                this.velocity.x = 0;
-            }
-        } else if (KeyListener.isKeyPressed(GLFW_KEY_LEFT) || KeyListener.isKeyPressed(GLFW_KEY_A)) {
-            this.velocity.x = -walkSpeed;
-//            System.out.println("left");
             this.stateMachine.trigger("startRunning");
 
             if (this.velocity.x > 0) {
-                this.stateMachine.trigger("switchDirection");
-                this.velocity.x = 0;
+//                System.out.println("right");
+                this.stateMachine.trigger("startRunning");
+                this.velocity.x += slowDownForce;
+            }
+        } else if (KeyListener.isKeyPressed(GLFW_KEY_LEFT) || KeyListener.isKeyPressed(GLFW_KEY_A)) {
+            this.gameObject.transform.scale.x = -playerWidth;
+            this.velocity.x = -walkSpeed;
+            this.stateMachine.trigger("startRunning");
+
+            if (this.velocity.x < 0) {
+//                System.out.println("left");
+                this.stateMachine.trigger("startRunning");
+                this.velocity.x -= slowDownForce;
             }
         } else if (KeyListener.isKeyPressed(GLFW_KEY_UP) || KeyListener.isKeyPressed(GLFW_KEY_W)) {
             this.velocity.y = walkSpeed;
@@ -137,6 +168,20 @@ public class PlayerController extends Component {
             }
         }
 
+        if ((KeyListener.keyBeginPress(GLFW_KEY_SPACE) && Fireball.canSpawn())) {
+            this.acceleration.x = 0;
+            this.velocity.x = 0;
+            this.velocity.y = 0;
+            this.acceleration.y = 0;
+            Vector2f position = new Vector2f(this.gameObject.transform.position)
+                    .add(this.gameObject.transform.scale.x > 0
+                    ? new Vector2f(0.26f, 0)
+                    : new Vector2f(-0.26f, 0));
+            GameObject fireball = Prefabs.generateFireball(position);
+            fireball.getComponent(Fireball.class).goingRight =
+                    this.gameObject.transform.scale.x > 0;
+            Window.getScene().addGameObjectToScene(fireball);
+        }
 
 
         this.velocity.x += this.acceleration.x * dt;
@@ -167,7 +212,7 @@ public class PlayerController extends Component {
             if (pb != null) {
                 jumpBoost *= bigJumpBoostFactor;
                 walkSpeed *= bigJumpBoostFactor;
-                pb.setHeight(0.63f);
+                pb.setHeight(0.42f);
             }
         } else if (playerState == PlayerState.Big) {
             playerState = PlayerState.Fire;
@@ -175,6 +220,20 @@ public class PlayerController extends Component {
         }
 
         stateMachine.trigger("powerup");
+    }
+
+    public void playWinAnimation(GameObject flagpole) {
+        if (!playWinAnimation) {
+            playWinAnimation = true;
+            velocity.set(0.0f, 0.0f);
+            acceleration.set(0.0f, 0.0f);
+            rb.setVelocity(velocity);
+            rb.setIsSensor();
+            rb.setBodyType(BodyType.Static);
+            gameObject.transform.position.x = flagpole.transform.position.x;
+            AssetPool.getSound("assets/sounds/main-theme-overworld.ogg").stop();
+            AssetPool.getSound("assets/sounds/flagpole.ogg").play();
+        }
     }
 
     @Override
@@ -201,11 +260,12 @@ public class PlayerController extends Component {
     }
 
     public boolean isHurtInvincible() {
-        return this.hurtInvincibilityTimeLeft > 0;
+        return this.hurtInvincibilityTimeLeft > 0 || playWinAnimation;
     }
 
     public boolean isInvincible() {
-        return this.playerState == PlayerState.Invincible || this.hurtInvincibilityTimeLeft > 0;
+        return this.playerState == PlayerState.Invincible ||
+                this.hurtInvincibilityTimeLeft > 0 || playWinAnimation;
     }
 
     public void die() {
@@ -216,6 +276,7 @@ public class PlayerController extends Component {
             this.rb.setVelocity(new Vector2f());
             this.isDead = true;
             this.rb.setIsSensor();
+            AssetPool.getSound("assets/sounds/main-theme-overworld.ogg").stop();
             AssetPool.getSound("assets/sounds/mario_die.ogg").play();
             deadMaxHeight = this.gameObject.transform.position.y + 0.3f;
             this.rb.setBodyType(BodyType.Static);
@@ -229,7 +290,7 @@ public class PlayerController extends Component {
             if (pb != null) {
                 jumpBoost /= bigJumpBoostFactor;
                 walkSpeed /= bigJumpBoostFactor;
-                pb.setHeight(0.31f);
+                pb.setHeight(0.25f);
             }
             hurtInvincibilityTimeLeft = hurtInvincibilityTime;
             AssetPool.getSound("assets/sounds/pipe.ogg").play();

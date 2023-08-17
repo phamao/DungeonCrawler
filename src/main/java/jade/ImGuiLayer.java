@@ -102,7 +102,8 @@ public class ImGuiLayer {
                 ImGui.setWindowFocus(null);
             }
 
-            if (!io.getWantCaptureMouse() || gameViewWindow.getWantCaptureMouse()) {
+
+            if (gameViewWindow.getWantCaptureMouse()) {
                 MouseListener.mouseButtonCallback(w, button, action, mods);
             }
         });
@@ -140,7 +141,7 @@ public class ImGuiLayer {
         // Fonts configuration
         // Read: https://raw.githubusercontent.com/ocornut/imgui/master/docs/FONTS.txt
 
-        if (new File("assets/fonts/segoeui.ttf").isFile()) {
+        if (new File("C:/Windows/Fonts/segoeui.ttf").isFile()) {
             final ImFontAtlas fontAtlas = io.getFonts();
             final ImFontConfig fontConfig = new ImFontConfig(); // Natively allocated object, should be explicitly destroyed
 
@@ -149,7 +150,20 @@ public class ImGuiLayer {
 
             // Fonts merge example
             fontConfig.setPixelSnapH(true);
-            fontAtlas.addFontFromFileTTF("assets/fonts/segoeui.ttf", 20, fontConfig);
+            fontAtlas.addFontFromFileTTF("C:/Windows/Fonts/segoeui.ttf", 20, fontConfig);
+            fontConfig.destroy(); // After all fonts were added we don't need this config more
+        } else if (new File("C:/Windows/Fonts/Cour.ttf").isFile()) {
+            // Fallback font
+
+            final ImFontAtlas fontAtlas = io.getFonts();
+            final ImFontConfig fontConfig = new ImFontConfig(); // Natively allocated object, should be explicitly destroyed
+
+            // Glyphs could be added per-font as well as per config used globally like here
+            fontConfig.setGlyphRanges(fontAtlas.getGlyphRangesDefault());
+
+            // Fonts merge example
+            fontConfig.setPixelSnapH(true);
+            fontAtlas.addFontFromFileTTF("C:/Windows/Fonts/Cour.ttf", 20, fontConfig);
             fontConfig.destroy(); // After all fonts were added we don't need this config more
         }
 

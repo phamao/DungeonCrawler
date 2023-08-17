@@ -42,9 +42,11 @@ public class TurtleAI extends Component {
             if (goingRight) {
                 gameObject.transform.scale.x = -0.25f;
                 velocity.x = walkSpeed;
+                acceleration.x = 0;
             } else {
                 gameObject.transform.scale.x = 0.25f;
                 velocity.x = -walkSpeed;
+                acceleration.x = 0;
             }
         } else {
             velocity.x = 0;
@@ -62,7 +64,7 @@ public class TurtleAI extends Component {
         this.rb.setVelocity(velocity);
 
         if (this.gameObject.transform.position.x <
-                Window.getScene().camera().position.x - 0.5f) { // ||
+                Window.getScene().camera().position.x - 0.5f) {// ||
                 //this.gameObject.transform.position.y < 0.0f) {
             this.gameObject.destroy();
         }
@@ -76,7 +78,7 @@ public class TurtleAI extends Component {
 
     public void stomp() {
         this.isDead = true;
-        this.isMoving =false;
+        this.isMoving = false;
         this.velocity.zero();
         this.rb.setVelocity(this.velocity);
         this.rb.setAngularVelocity(0.0f);
@@ -86,7 +88,14 @@ public class TurtleAI extends Component {
     }
 
     @Override
-    public void beginCollision(GameObject obj, Contact contact, Vector2f contactNormal) {
+    public void preSolve(GameObject obj, Contact contact, Vector2f contactNormal) {
+        GoombaAI goomba = obj.getComponent(GoombaAI.class);
+        if (isDead && isMoving && goomba != null) {
+            goomba.stomp();
+            contact.setEnabled(false);
+            AssetPool.getSound("assets/sounds/kick.ogg").play();
+        }
+
         PlayerController playerController = obj.getComponent(PlayerController.class);
         if (playerController != null) {
             if (!isDead && !playerController.isDead() &&
@@ -96,9 +105,12 @@ public class TurtleAI extends Component {
                 stomp();
                 walkSpeed *= 3.0f;
             } else if (movingDebounce < 0 && !playerController.isDead() &&
-                        !playerController.isHurtInvincible() &&
-                        (isMoving || !isDead) && contactNormal.y < 0.58f) {
+                    !playerController.isHurtInvincible() &&
+                    (isMoving || !isDead) && contactNormal.y < 0.58f) {
                 playerController.die();
+                if (!playerController.isDead()) {
+                    contact.setEnabled(false);
+                }
             } else if (!playerController.isDead() && !playerController.isHurtInvincible()) {
                 if (isDead && contactNormal.y > 0.58f) {
                     playerController.enemyBounce();
@@ -109,22 +121,26 @@ public class TurtleAI extends Component {
                     goingRight = contactNormal.x < 0;
                     movingDebounce = 0.32f;
                 }
+            } else if (!playerController.isDead() && playerController.isHurtInvincible()) {
+                contact.setEnabled(false);
             }
-        } else if (Math.abs(contactNormal.y) < 0.1f && !obj.isDead()) {
+        } else if (Math.abs(contactNormal.y) < 0.1f && !obj.isDead() && obj.getComponent(MushroomAI.class) == null) {
             goingRight = contactNormal.x < 0;
             if (isMoving && isDead) {
                 AssetPool.getSound("assets/sounds/bump.ogg").play();
             }
         }
-    }
 
-    @Override
-    public void preSolve(GameObject obj, Contact contact, Vector2f contactNormal) {
-        GoombaAI goomba = obj.getComponent(GoombaAI.class);
-        if (isDead && isMoving && goomba != null) {
-            goomba.stomp();
+        if (obj.getComponent(Fireball.class) != null) {
+            if (!isDead) {
+                walkSpeed *= 3.0f;
+                stomp();
+            } else {
+                isMoving = !isMoving;
+                goingRight = contactNormal.x < 0;
+            }
+            obj.getComponent(Fireball.class).disappear();
             contact.setEnabled(false);
-            AssetPool.getSound("assets/sounds/kick.ogg").play();
         }
     }
 }

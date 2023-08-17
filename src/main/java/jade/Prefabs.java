@@ -191,18 +191,20 @@ public class Prefabs {
         mario.addComponent(stateMachine);
 
         PillboxCollider pb = new PillboxCollider();
-        pb.width = 0.39f;
-        pb.height = 0.31f;
+        pb.width = 0.21f;
+        pb.height = 0.25f;
+        mario.addComponent(pb);
+
         Rigidbody2D rb = new Rigidbody2D();
         rb.setBodyType(BodyType.Dynamic);
         rb.setContinuousCollision(false);
         rb.setFixedRotation(true);
         rb.setMass(25.0f);
-
         mario.addComponent(rb);
-        mario.addComponent(pb);
+
         mario.addComponent(new PlayerController());
 
+        mario.transform.zIndex = 10;
         return mario;
     }
 
@@ -265,6 +267,34 @@ public class Prefabs {
         return coin;
     }
 
+    public static GameObject generateCoin() {
+        Spritesheet items = AssetPool.getSpritesheet("assets/images/items.png");
+        GameObject coin = generateSpriteObject(items.getSprite(7), 0.25f, 0.25f);
+
+        AnimationState coinFlip = new AnimationState();
+        coinFlip.title = "CoinFlip";
+        float defaultFrameTime = 0.23f;
+        coinFlip.addFrame(items.getSprite(7), 0.57f);
+        coinFlip.addFrame(items.getSprite(8), defaultFrameTime);
+        coinFlip.addFrame(items.getSprite(9), defaultFrameTime);
+        coinFlip.setLoop(true);
+
+        StateMachine stateMachine = new StateMachine();
+        stateMachine.addState(coinFlip);
+        stateMachine.setDefaultState(coinFlip.title);
+        coin.addComponent(stateMachine);
+        coin.addComponent(new Coin());
+
+        CircleCollider circleCollider = new CircleCollider();
+        circleCollider.setRadius(0.12f);
+        coin.addComponent(circleCollider);
+        Rigidbody2D rb = new Rigidbody2D();
+        rb.setBodyType(BodyType.Static);
+        coin.addComponent(rb);
+
+        return coin;
+    }
+
     public static GameObject generateGoomba() {
         Spritesheet sprites = AssetPool.getSpritesheet("assets/images/spritesheet.png");
         GameObject goomba = generateSpriteObject(sprites.getSprite(14), 0.25f, 0.25f);
@@ -303,19 +333,19 @@ public class Prefabs {
     }
 
     public static GameObject generateTurtle() {
-        Spritesheet turtleSprties = AssetPool.getSpritesheet("assets/images/turtle.png");
-        GameObject turtle = generateSpriteObject(turtleSprties.getSprite(0), 0.25f, 0.35f);
+        Spritesheet turtleSprites = AssetPool.getSpritesheet("assets/images/turtle.png");
+        GameObject turtle = generateSpriteObject(turtleSprites.getSprite(0), 0.25f, 0.35f);
 
         AnimationState walk = new AnimationState();
         walk.title = "Walk";
         float defaultFrameTime = 0.23f;
-        walk.addFrame(turtleSprties.getSprite(0), defaultFrameTime);
-        walk.addFrame(turtleSprties.getSprite(1), defaultFrameTime);
+        walk.addFrame(turtleSprites.getSprite(0), defaultFrameTime);
+        walk.addFrame(turtleSprites.getSprite(1), defaultFrameTime);
         walk.setLoop(true);
 
         AnimationState squashed = new AnimationState();
         squashed.title = "TurtleShellSpin";
-        squashed.addFrame(turtleSprties.getSprite(2), 0.1f);
+        squashed.addFrame(turtleSprites.getSprite(2), 0.1f);
         squashed.setLoop(false);
 
         StateMachine stateMachine = new StateMachine();
@@ -338,6 +368,63 @@ public class Prefabs {
         turtle.addComponent(new TurtleAI());
 
         return turtle;
+    }
+
+    public static GameObject generateFireball(Vector2f position) {
+        Spritesheet items = AssetPool.getSpritesheet("assets/images/items.png");
+        GameObject fireball = generateSpriteObject(items.getSprite(32), 0.18f, 0.18f);
+        fireball.transform.position = position;
+
+        Rigidbody2D rb = new Rigidbody2D();
+        rb.setBodyType(BodyType.Dynamic);
+        rb.setFixedRotation(true);
+        rb.setContinuousCollision(false);
+        fireball.addComponent(rb);
+
+        CircleCollider circleCollider = new CircleCollider();
+        circleCollider.setRadius(0.08f);
+        fireball.addComponent(circleCollider);
+        fireball.addComponent(new Fireball());
+
+        return fireball;
+    }
+
+    public static GameObject generateFlagtop() {
+        Spritesheet items = AssetPool.getSpritesheet("assets/images/items.png");
+        GameObject flagtop = generateSpriteObject(items.getSprite(6), 0.25f, 0.25f);
+
+        Rigidbody2D rb = new Rigidbody2D();
+        rb.setBodyType(BodyType.Dynamic);
+        rb.setFixedRotation(true);
+        rb.setContinuousCollision(false);
+        flagtop.addComponent(rb);
+
+        Box2DCollider boxCollider = new Box2DCollider();
+        boxCollider.setHalfSize(new Vector2f(0.1f, 0.25f));
+        boxCollider.setOffset(new Vector2f(-0.075f, 0.0f));
+        flagtop.addComponent(boxCollider);
+        flagtop.addComponent(new Flagpole(true));
+
+        return flagtop;
+    }
+
+    public static GameObject generateFlagPole() {
+        Spritesheet items = AssetPool.getSpritesheet("assets/images/items.png");
+        GameObject flagtop = generateSpriteObject(items.getSprite(33), 0.25f, 0.25f);
+
+        Rigidbody2D rb = new Rigidbody2D();
+        rb.setBodyType(BodyType.Dynamic);
+        rb.setFixedRotation(true);
+        rb.setContinuousCollision(false);
+        flagtop.addComponent(rb);
+
+        Box2DCollider boxCollider = new Box2DCollider();
+        boxCollider.setHalfSize(new Vector2f(0.1f, 0.25f));
+        boxCollider.setOffset(new Vector2f(-0.075f, 0.0f));
+        flagtop.addComponent(boxCollider);
+        flagtop.addComponent(new Flagpole(false));
+
+        return flagtop;
     }
 
     public static GameObject generateMushroom() {

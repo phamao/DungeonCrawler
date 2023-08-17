@@ -14,8 +14,6 @@ import java.io.File;
 import java.util.Collection;
 
 public class LevelSceneInitializer extends SceneInitializer {
-
-
     public LevelSceneInitializer() {
 
     }
@@ -73,6 +71,8 @@ public class LevelSceneInitializer extends SceneInitializer {
         AssetPool.addSound("assets/sounds/kick.ogg", false);
         AssetPool.addSound("assets/sounds/invincible.ogg", false);
 
+        AssetPool.getSound(("assets/sounds/main-theme-overworld.ogg")).play();
+
         for (GameObject g : scene.getGameObjects()) {
             if (g.getComponent(SpriteRenderer.class) != null) {
                 SpriteRenderer spr = g.getComponent(SpriteRenderer.class);
@@ -89,5 +89,7 @@ public class LevelSceneInitializer extends SceneInitializer {
     }
 
     @Override
-    public void imgui() {}
+    public void imgui() {
+
+    }
 }

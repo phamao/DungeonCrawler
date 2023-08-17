@@ -1,6 +1,7 @@
 package renderer;
 
 import components.SpriteRenderer;
+import components.StateMachine;
 import jade.GameObject;
 import jade.Window;
 import org.joml.Matrix4f;
@@ -291,7 +292,7 @@ public class RenderBatch implements Comparable<RenderBatch> {
     }
 
     public boolean hasTextureRoom() {
-        return this.textures.size() < 8;
+        return this.textures.size() < 7;
     }
 
     public boolean hasTexture(Texture tex) {

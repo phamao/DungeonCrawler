@@ -69,6 +69,12 @@ public class Scene {
         }
     }
 
+    public void destroy() {
+        for (GameObject go : gameObjects) {
+            go.destroy();
+        }
+    }
+
     public <T extends Component> GameObject getGameObjectWith(Class<T> clazz) {
         for (GameObject go : gameObjects) {
             if (go.getComponent(clazz) != null) {
@@ -79,12 +85,6 @@ public class Scene {
         return null;
     }
 
-    public void destroy() {
-        for (GameObject go : gameObjects) {
-            go.destroy();
-        }
-    }
-
     public List<GameObject> getGameObjects() {
         return this.gameObjects;
     }
@@ -92,13 +92,6 @@ public class Scene {
     public GameObject getGameObject(int gameObjectId) {
         Optional<GameObject> result = this.gameObjects.stream()
                 .filter(gameObject -> gameObject.getUid() == gameObjectId)
-                .findFirst();
-        return result.orElse(null);
-    }
-
-    public GameObject getGameObject(String gameObjectName) {
-        Optional<GameObject> result = this.gameObjects.stream()
-                .filter(gameObject -> gameObject.name.equals(gameObjectName))
                 .findFirst();
         return result.orElse(null);
     }
@@ -125,6 +118,13 @@ public class Scene {
             this.physics2D.add(go);
         }
         pendingObjects.clear();
+    }
+
+    public GameObject getGameObject(String gameObjectName) {
+        Optional<GameObject> result = this.gameObjects.stream()
+                .filter(gameObject -> gameObject.name.equals(gameObjectName))
+                .findFirst();
+        return result.orElse(null);
     }
 
     public void update(float dt) {
