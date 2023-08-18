@@ -10,6 +10,9 @@ import physics2d.components.Rigidbody2D;
 
 public class Fireball extends Component {
     public transient boolean goingRight = false;
+    public transient boolean goingLeft = false;
+    public transient boolean goingUp = false;
+    public transient boolean goingDown = false;
     private transient Rigidbody2D rb;
     private transient float fireballSpeed = 1.7f;
     private transient Vector2f velocity = new Vector2f();
@@ -42,8 +45,12 @@ public class Fireball extends Component {
 
         if (goingRight) {
             velocity.x = fireballSpeed;
-        } else {
+        } else if (goingLeft) {
             velocity.x = -fireballSpeed;
+        } else if (goingUp) {
+            velocity.y = fireballSpeed;
+        } else if (goingDown) {
+            velocity.y = -fireballSpeed;
         }
 
 //        checkOnGround();

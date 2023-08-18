@@ -2,6 +2,7 @@ package components;
 
 import jade.Camera;
 import jade.GameObject;
+import jade.Prefabs;
 import jade.Window;
 import org.jbox2d.dynamics.contacts.Contact;
 import org.joml.Vector2f;
@@ -9,7 +10,11 @@ import physics2d.Physics2D;
 import physics2d.components.Rigidbody2D;
 import util.AssetPool;
 
+import static java.lang.Math.abs;
+
 public class GoombaAI extends Component {
+
+    private transient GameObject player;
 
     private transient boolean goingRight = false;
     private transient Rigidbody2D rb;
@@ -24,10 +29,13 @@ public class GoombaAI extends Component {
 
     @Override
     public void start() {
+        this.player = Window.getScene().getGameObjectWith(PlayerController.class);
         this.stateMachine = gameObject.getComponent(StateMachine.class);
         this.rb = gameObject.getComponent(Rigidbody2D.class);
-        this.acceleration.y = Window.getPhysics().getGravity().y * 0.7f;
+        this.rb.setGravityScale(0.0f);
     }
+
+    int i = 0;
 
     @Override
     public void update(float dt) {
@@ -52,26 +60,59 @@ public class GoombaAI extends Component {
             velocity.x = -walkSpeed;
         }
 
-        checkOnGround();
-        if (onGround) {
-            this.acceleration.y = 0;
-            this.velocity.y = 0;
-        } else {
-            this.acceleration.y = Window.getPhysics().getGravity().y * 0.7f;
+        float xOffset = this.gameObject.transform.position.x - this.player.transform.position.x;
+        float yOffset = this.gameObject.transform.position.y - this.player.transform.position.y;
+
+        if (i % 100 == 0) {
+            if (abs(xOffset) > abs(yOffset) || abs(xOffset) == abs(yOffset)) {
+                if (xOffset < 0) {
+                    Vector2f position = new Vector2f(this.gameObject.transform.position)
+                            .add(this.gameObject.transform.scale.x > 0
+                                    ? new Vector2f(0.26f, 0)
+                                    : new Vector2f(-0.26f, 0));
+
+                    GameObject fireball = Prefabs.generateFireball(position);
+                    fireball.getComponent(Fireball.class).goingRight =
+                            this.gameObject.transform.scale.x > 0;
+                    Window.getScene().addGameObjectToScene(fireball);
+                } else if (xOffset > 0) {
+                    Vector2f position = new Vector2f(this.gameObject.transform.position)
+                            .add(this.gameObject.transform.scale.x > 0
+                                    ? new Vector2f(-0.26f, 0)
+                                    : new Vector2f(0.26f, 0));
+
+                    GameObject fireball = Prefabs.generateFireball(position);
+                    fireball.getComponent(Fireball.class).goingLeft =
+                            this.gameObject.transform.scale.x > 0;
+                    Window.getScene().addGameObjectToScene(fireball);
+                }
+            } else if (abs(yOffset) > abs(xOffset)) {
+                if (yOffset < 0) {
+                    Vector2f position = new Vector2f(this.gameObject.transform.position)
+                            .add(this.gameObject.transform.scale.y > 0
+                                    ? new Vector2f(0, 0.26f)
+                                    : new Vector2f(0, -0.26f));
+
+                    GameObject fireball = Prefabs.generateFireball(position);
+                    fireball.getComponent(Fireball.class).goingUp =
+                            this.gameObject.transform.scale.y > 0;
+                    Window.getScene().addGameObjectToScene(fireball);
+                } else if (yOffset > 0) {
+                    Vector2f position = new Vector2f(this.gameObject.transform.position)
+                            .add(this.gameObject.transform.scale.y > 0
+                                    ? new Vector2f(0, -0.26f)
+                                    : new Vector2f(0, 0.26f));
+
+                    GameObject fireball = Prefabs.generateFireball(position);
+                    fireball.getComponent(Fireball.class).goingDown =
+                            this.gameObject.transform.scale.y > 0;
+                    Window.getScene().addGameObjectToScene(fireball);
+                }
+            }
         }
 
-        this.velocity.y += this.acceleration.y * dt;
-        this.velocity.y = Math.max(Math.min(this.velocity.y, this.terminalVelocity.y), -terminalVelocity.y);
         this.rb.setVelocity(velocity);
-        if (this.gameObject.transform.position.x < Window.getScene().camera().position.x - 0.5f) {
-            this.gameObject.destroy();
-        }
-    }
-
-    public void checkOnGround() {
-        float innerPlayerWidth = 0.25f * 0.7f;
-        float yVal = -0.14f;
-        onGround = Physics2D.checkOnGround(this.gameObject, innerPlayerWidth, yVal);
+        i++;
     }
 
     @Override
@@ -94,7 +135,7 @@ public class GoombaAI extends Component {
             } else if (!playerController.isDead() && playerController.isInvincible()) {
                 contact.setEnabled(false);
             }
-        } else if (Math.abs(contactNormal.y) < 0.1f) {
+        } else if (abs(contactNormal.y) < 0.1f) {
             goingRight = contactNormal.x < 0;
         }
 

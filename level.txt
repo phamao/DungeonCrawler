@@ -11952,7 +11952,7 @@
                   "frameTime": 0.1
                 }
               ],
-              "time": 0.010139085,
+              "time": 0.08683095,
               "doesLoop": false
             },
             {
@@ -13788,6 +13788,458 @@
         "type": "components.Ground",
         "properties": {
           "uid": 160
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 117,
+    "name": "Sprite_Object_Gen",
+    "components": [
+      {
+        "type": "jade.Transform",
+        "properties": {
+          "position": {
+            "x": 1.625,
+            "y": 4.125
+          },
+          "scale": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 181
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 0.8,
+            "y": 0.8,
+            "z": 0.8,
+            "w": 0.5
+          },
+          "sprite": {
+            "width": 16.0,
+            "height": 16.0,
+            "texture": {
+              "filepath": "assets/images/spritesheet.png",
+              "width": 224,
+              "height": 32
+            },
+            "texCoords": [
+              {
+                "x": 0.071428575,
+                "y": 0.5
+              },
+              {
+                "x": 0.071428575,
+                "y": 0.0
+              },
+              {
+                "x": 0.0,
+                "y": 0.0
+              },
+              {
+                "x": 0.0,
+                "y": 0.5
+              }
+            ]
+          },
+          "uid": 182
+        }
+      },
+      {
+        "type": "components.StateMachine",
+        "properties": {
+          "stateTransfers": [
+            [
+              {
+                "state": "Walk",
+                "trigger": "squashMe"
+              },
+              "Squashed"
+            ]
+          ],
+          "states": [
+            {
+              "title": "Walk",
+              "animationFrames": [
+                {
+                  "sprite": {
+                    "width": 16.0,
+                    "height": 16.0,
+                    "texture": {
+                      "filepath": "assets/images/spritesheet.png",
+                      "width": 224,
+                      "height": 32
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.071428575,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.071428575,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.0,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.0,
+                        "y": 0.5
+                      }
+                    ]
+                  },
+                  "frameTime": 0.23
+                },
+                {
+                  "sprite": {
+                    "width": 16.0,
+                    "height": 16.0,
+                    "texture": {
+                      "filepath": "assets/images/spritesheet.png",
+                      "width": 224,
+                      "height": 32
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.14285715,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.14285715,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.071428575,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.071428575,
+                        "y": 0.5
+                      }
+                    ]
+                  },
+                  "frameTime": 0.23
+                }
+              ],
+              "time": 0.17826413,
+              "doesLoop": true
+            },
+            {
+              "title": "Squashed",
+              "animationFrames": [
+                {
+                  "sprite": {
+                    "width": 16.0,
+                    "height": 16.0,
+                    "texture": {
+                      "filepath": "assets/images/spritesheet.png",
+                      "width": 224,
+                      "height": 32
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.21428572,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.21428572,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.14285715,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.14285715,
+                        "y": 0.5
+                      }
+                    ]
+                  },
+                  "frameTime": 0.1
+                }
+              ],
+              "time": 0.0,
+              "doesLoop": false
+            }
+          ],
+          "defaultStateTitle": "Walk",
+          "uid": 183
+        }
+      },
+      {
+        "type": "physics2d.components.Rigidbody2D",
+        "properties": {
+          "velocity": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "angularDamping": 0.8,
+          "linearDamping": 0.9,
+          "mass": 0.1,
+          "bodyType": "Dynamic",
+          "friction": 0.1,
+          "angularVelocity": 0.0,
+          "gravityScale": 0.0,
+          "isSensor": false,
+          "fixedRotation": true,
+          "continuousCollision": true,
+          "uid": 184
+        }
+      },
+      {
+        "type": "physics2d.components.CircleCollider",
+        "properties": {
+          "radius": 0.12,
+          "offset": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "uid": 185
+        }
+      },
+      {
+        "type": "components.GoombaAI",
+        "properties": {
+          "i": 0,
+          "uid": 186
+        }
+      },
+      {
+        "type": "components.NonPickable",
+        "properties": {
+          "uid": 187
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 118,
+    "name": "Sprite_Object_Gen",
+    "components": [
+      {
+        "type": "jade.Transform",
+        "properties": {
+          "position": {
+            "x": 4.875,
+            "y": 3.125
+          },
+          "scale": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 181
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 16.0,
+            "height": 16.0,
+            "texture": {
+              "filepath": "assets/images/spritesheet.png",
+              "width": 224,
+              "height": 32
+            },
+            "texCoords": [
+              {
+                "x": 0.071428575,
+                "y": 0.5
+              },
+              {
+                "x": 0.071428575,
+                "y": 0.0
+              },
+              {
+                "x": 0.0,
+                "y": 0.0
+              },
+              {
+                "x": 0.0,
+                "y": 0.5
+              }
+            ]
+          },
+          "uid": 182
+        }
+      },
+      {
+        "type": "components.StateMachine",
+        "properties": {
+          "stateTransfers": [
+            [
+              {
+                "state": "Walk",
+                "trigger": "squashMe"
+              },
+              "Squashed"
+            ]
+          ],
+          "states": [
+            {
+              "title": "Walk",
+              "animationFrames": [
+                {
+                  "sprite": {
+                    "width": 16.0,
+                    "height": 16.0,
+                    "texture": {
+                      "filepath": "assets/images/spritesheet.png",
+                      "width": 224,
+                      "height": 32
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.071428575,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.071428575,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.0,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.0,
+                        "y": 0.5
+                      }
+                    ]
+                  },
+                  "frameTime": 0.23
+                },
+                {
+                  "sprite": {
+                    "width": 16.0,
+                    "height": 16.0,
+                    "texture": {
+                      "filepath": "assets/images/spritesheet.png",
+                      "width": 224,
+                      "height": 32
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.14285715,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.14285715,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.071428575,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.071428575,
+                        "y": 0.5
+                      }
+                    ]
+                  },
+                  "frameTime": 0.23
+                }
+              ],
+              "time": 0.17826413,
+              "doesLoop": true
+            },
+            {
+              "title": "Squashed",
+              "animationFrames": [
+                {
+                  "sprite": {
+                    "width": 16.0,
+                    "height": 16.0,
+                    "texture": {
+                      "filepath": "assets/images/spritesheet.png",
+                      "width": 224,
+                      "height": 32
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.21428572,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.21428572,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.14285715,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.14285715,
+                        "y": 0.5
+                      }
+                    ]
+                  },
+                  "frameTime": 0.1
+                }
+              ],
+              "time": 0.0,
+              "doesLoop": false
+            }
+          ],
+          "defaultStateTitle": "Walk",
+          "uid": 183
+        }
+      },
+      {
+        "type": "physics2d.components.Rigidbody2D",
+        "properties": {
+          "velocity": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "angularDamping": 0.8,
+          "linearDamping": 0.9,
+          "mass": 0.1,
+          "bodyType": "Dynamic",
+          "friction": 0.1,
+          "angularVelocity": 0.0,
+          "gravityScale": 0.0,
+          "isSensor": false,
+          "fixedRotation": true,
+          "continuousCollision": true,
+          "uid": 184
+        }
+      },
+      {
+        "type": "physics2d.components.CircleCollider",
+        "properties": {
+          "radius": 0.12,
+          "offset": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "uid": 185
+        }
+      },
+      {
+        "type": "components.GoombaAI",
+        "properties": {
+          "i": 0,
+          "uid": 186
         }
       }
     ],

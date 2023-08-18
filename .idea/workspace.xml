@@ -4,28 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ac74943e-1386-480e-8f9e-76de047c391b" name="Changes" comment="Top-Down 2D Movement and Camera Functionality">
+    <list default="true" id="ac74943e-1386-480e-8f9e-76de047c391b" name="Changes" comment="Created Projectile Attack">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/imgui.ini" beforeDir="false" afterPath="$PROJECT_DIR$/imgui.ini" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/level.txt" beforeDir="false" afterPath="$PROJECT_DIR$/level.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/components/Fireball.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/components/Fireball.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/components/GoombaAI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/components/GoombaAI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/components/GridLines.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/components/GridLines.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/components/MushroomAI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/components/MushroomAI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/components/Pipe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/components/Pipe.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/components/PlayerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/components/PlayerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/components/Spritesheet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/components/Spritesheet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/components/StateMachine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/components/StateMachine.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/components/TurtleAI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/components/TurtleAI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/editor/GameViewWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/editor/GameViewWindow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/jade/ImGuiLayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jade/ImGuiLayer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/jade/Prefabs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jade/Prefabs.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/physics2d/Physics2D.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/physics2d/Physics2D.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/physics2d/components/CircleCollider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/physics2d/components/CircleCollider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/physics2d/components/PillboxCollider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/physics2d/components/PillboxCollider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/renderer/DebugDraw.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/renderer/DebugDraw.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/renderer/RenderBatch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/renderer/RenderBatch.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/scenes/LevelEditorSceneInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/scenes/LevelEditorSceneInitializer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/scenes/LevelSceneInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/scenes/LevelSceneInitializer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/scenes/Scene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/scenes/Scene.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,21 +54,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "C:/Users/anquo/OneDrive/Documents/CS PROJECTS/Java/DungeonCrawler/src/main/java/util/Settings.java",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle",
-    "two.files.diff.last.used.file": "C:/Users/anquo/OneDrive/Documents/CS PROJECTS/Java/DungeonCrawler/src/main/java/util/Settings.java"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/anquo/OneDrive/Documents/CS PROJECTS/Java/DungeonCrawler/src/main/java/util/Settings.java&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.project.gradle&quot;,
+    &quot;two.files.diff.last.used.file&quot;: &quot;C:/Users/anquo/OneDrive/Documents/CS PROJECTS/Java/DungeonCrawler/src/main/java/util/Settings.java&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\anquo\OneDrive\Documents\CS PROJECTS\Java\Tutorial\mario\src\main\java\components" />
@@ -494,7 +478,15 @@
       <option name="project" value="LOCAL" />
       <updated>1692225447416</updated>
     </task>
-    <option name="localTasksCounter" value="47" />
+    <task id="LOCAL-00047" summary="Created Projectile Attack">
+      <option name="closed" value="true" />
+      <created>1692303391340</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1692303391340</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -509,7 +501,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Mouse Screen Coordinates to Game Viewport Coordinates" />
     <MESSAGE value="Enabling Mouse Picking and Code Maintenance" />
     <MESSAGE value="Editor Camera Controls with Lerp" />
     <MESSAGE value="Coding Gizmos" />
@@ -534,7 +525,8 @@
     <MESSAGE value="Mario Pipes &amp; Editor Improvements" />
     <MESSAGE value="Game Camera &amp; Grid Lines" />
     <MESSAGE value="Top-Down 2D Movement and Camera Functionality" />
-    <option name="LAST_COMMIT_MESSAGE" value="Top-Down 2D Movement and Camera Functionality" />
+    <MESSAGE value="Created Projectile Attack" />
+    <option name="LAST_COMMIT_MESSAGE" value="Created Projectile Attack" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
