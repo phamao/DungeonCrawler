@@ -8,7 +8,7 @@ import org.joml.Vector2f;
 import physics2d.Physics2D;
 import physics2d.components.Rigidbody2D;
 
-public class Fireball extends Component {
+public class EnemyFireball extends Component {
     public transient boolean goingRight = false;
     public transient boolean goingLeft = false;
     public transient boolean goingUp = false;

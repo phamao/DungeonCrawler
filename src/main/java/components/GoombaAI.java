@@ -71,8 +71,8 @@ public class GoombaAI extends Component {
                                     ? new Vector2f(0.26f, 0)
                                     : new Vector2f(-0.26f, 0));
 
-                    GameObject fireball = Prefabs.generateFireball(position);
-                    fireball.getComponent(Fireball.class).goingRight =
+                    GameObject fireball = Prefabs.generateEnemyFireball(position);
+                    fireball.getComponent(EnemyFireball.class).goingRight =
                             this.gameObject.transform.scale.x > 0;
                     Window.getScene().addGameObjectToScene(fireball);
                 } else if (xOffset > 0) {
@@ -81,8 +81,8 @@ public class GoombaAI extends Component {
                                     ? new Vector2f(-0.26f, 0)
                                     : new Vector2f(0.26f, 0));
 
-                    GameObject fireball = Prefabs.generateFireball(position);
-                    fireball.getComponent(Fireball.class).goingLeft =
+                    GameObject fireball = Prefabs.generateEnemyFireball(position);
+                    fireball.getComponent(EnemyFireball.class).goingLeft =
                             this.gameObject.transform.scale.x > 0;
                     Window.getScene().addGameObjectToScene(fireball);
                 }
@@ -93,8 +93,8 @@ public class GoombaAI extends Component {
                                     ? new Vector2f(0, 0.26f)
                                     : new Vector2f(0, -0.26f));
 
-                    GameObject fireball = Prefabs.generateFireball(position);
-                    fireball.getComponent(Fireball.class).goingUp =
+                    GameObject fireball = Prefabs.generateEnemyFireball(position);
+                    fireball.getComponent(EnemyFireball.class).goingUp =
                             this.gameObject.transform.scale.y > 0;
                     Window.getScene().addGameObjectToScene(fireball);
                 } else if (yOffset > 0) {
@@ -103,8 +103,8 @@ public class GoombaAI extends Component {
                                     ? new Vector2f(0, -0.26f)
                                     : new Vector2f(0, 0.26f));
 
-                    GameObject fireball = Prefabs.generateFireball(position);
-                    fireball.getComponent(Fireball.class).goingDown =
+                    GameObject fireball = Prefabs.generateEnemyFireball(position);
+                    fireball.getComponent(EnemyFireball.class).goingDown =
                             this.gameObject.transform.scale.y > 0;
                     Window.getScene().addGameObjectToScene(fireball);
                 }

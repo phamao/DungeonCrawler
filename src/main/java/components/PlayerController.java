@@ -56,6 +56,8 @@ public class PlayerController extends Component {
     private transient float timeToCastle = 4.5f;
     private transient float walkTime = 2.2f;
 
+    private transient String lastDirection;
+
     @Override
     public void start() {
         this.spr = gameObject.getComponent(SpriteRenderer.class);
@@ -139,6 +141,7 @@ public class PlayerController extends Component {
                 this.stateMachine.trigger("startRunning");
                 this.velocity.x += slowDownForce;
             }
+            this.lastDirection = "Right";
         } else if (KeyListener.isKeyPressed(GLFW_KEY_LEFT) || KeyListener.isKeyPressed(GLFW_KEY_A)) {
             this.gameObject.transform.scale.x = -playerWidth;
             this.velocity.x = -walkSpeed;
@@ -149,14 +152,17 @@ public class PlayerController extends Component {
                 this.stateMachine.trigger("startRunning");
                 this.velocity.x -= slowDownForce;
             }
+            this.lastDirection = "Left";
         } else if (KeyListener.isKeyPressed(GLFW_KEY_UP) || KeyListener.isKeyPressed(GLFW_KEY_W)) {
             this.velocity.y = walkSpeed;
 //            System.out.println("up");
             this.stateMachine.trigger("startRunning");
+            this.lastDirection = "Up";
         } else if (KeyListener.isKeyPressed(GLFW_KEY_DOWN) || KeyListener.isKeyPressed(GLFW_KEY_S)) {
             this.velocity.y = -walkSpeed;
 //            System.out.println("down");
             this.stateMachine.trigger("startRunning");
+            this.lastDirection = "Down";
         } else {
             this.acceleration.x = 0;
             this.velocity.x = 0;
@@ -168,19 +174,58 @@ public class PlayerController extends Component {
             }
         }
 
-        if ((KeyListener.keyBeginPress(GLFW_KEY_SPACE) && Fireball.canSpawn())) {
+//        System.out.println(this.lastDirection);
+
+        if (KeyListener.keyBeginPress(GLFW_KEY_SPACE)) {
             this.acceleration.x = 0;
             this.velocity.x = 0;
             this.velocity.y = 0;
             this.acceleration.y = 0;
-            Vector2f position = new Vector2f(this.gameObject.transform.position)
-                    .add(this.gameObject.transform.scale.x > 0
-                    ? new Vector2f(0.26f, 0)
-                    : new Vector2f(-0.26f, 0));
-            GameObject fireball = Prefabs.generateFireball(position);
-            fireball.getComponent(Fireball.class).goingRight =
-                    this.gameObject.transform.scale.x > 0;
-            Window.getScene().addGameObjectToScene(fireball);
+
+            if (this.lastDirection != null) {
+                switch (this.lastDirection) {
+                    case "Right" -> {
+                        Vector2f position = new Vector2f(this.gameObject.transform.position)
+                                .add(this.gameObject.transform.scale.x > 0
+                                        ? new Vector2f(0.26f, 0)
+                                        : new Vector2f(-0.26f, 0));
+                        GameObject fireball = Prefabs.generateFireball(position);
+                        fireball.getComponent(Fireball.class).goingRight =
+                                this.gameObject.transform.scale.x > 0;
+                        Window.getScene().addGameObjectToScene(fireball);
+                    }
+                    case "Left" -> {
+                        Vector2f position = new Vector2f(this.gameObject.transform.position)
+                                .add(this.gameObject.transform.scale.x < 0
+                                        ? new Vector2f(-0.26f, 0)
+                                        : new Vector2f(0.26f, 0));
+                        GameObject fireball = Prefabs.generateFireball(position);
+                        fireball.getComponent(Fireball.class).goingLeft =
+                                this.gameObject.transform.scale.x < 0;
+                        Window.getScene().addGameObjectToScene(fireball);
+                    }
+                    case "Up" -> {
+                        Vector2f position = new Vector2f(this.gameObject.transform.position)
+                                .add(this.gameObject.transform.scale.y > 0
+                                        ? new Vector2f(0, 0.30f)
+                                        : new Vector2f(0, -0.26f));
+                        GameObject fireball = Prefabs.generateFireball(position);
+                        fireball.getComponent(Fireball.class).goingUp =
+                                this.gameObject.transform.scale.y > 0;
+                        Window.getScene().addGameObjectToScene(fireball);
+                    }
+                    case "Down" -> {
+                        Vector2f position = new Vector2f(this.gameObject.transform.position)
+                                .add(this.gameObject.transform.scale.y > 0
+                                        ? new Vector2f(0, -0.26f)
+                                        : new Vector2f(0, 0.26f));
+                        GameObject fireball = Prefabs.generateFireball(position);
+                        fireball.getComponent(Fireball.class).goingDown =
+                                this.gameObject.transform.scale.y > 0;
+                        Window.getScene().addGameObjectToScene(fireball);
+                    }
+                }
+            }
         }
 
 
@@ -248,6 +293,11 @@ public class PlayerController extends Component {
                 this.acceleration.y = 0;
                 this.jumpTime = 0;
             }
+        }
+
+        if (collidingObject.getComponent(EnemyFireball.class) != null) {
+            die();
+            collidingObject.getComponent(EnemyFireball.class).disappear();
         }
     }
 

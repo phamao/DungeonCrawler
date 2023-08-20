@@ -12,7 +12,7 @@ public class GameCamera extends Component {
     private transient float highestX = Float.MIN_VALUE;
     private transient float highestY = Float.MAX_VALUE;
     private transient float undergroundYLevel = 0.0f;
-    private transient float cameraBuffer = 1.5f;
+//    private transient float cameraBuffer = 2.0f;
     private transient float playerBuffer = 0.25f;
 
     private Vector4f skyColor = new Vector4f(0, 0, 0,1);
@@ -30,7 +30,7 @@ public class GameCamera extends Component {
 
     @Override
     public void update(float dt) {
-        gameCamera.position.x = player.transform.position.x - cameraBuffer;
-        gameCamera.position.y = player.transform.position.y - cameraBuffer;
+        gameCamera.position.x = player.transform.position.x - 2.0f;
+        gameCamera.position.y = player.transform.position.y - 1.5f;
     }
 }
